@@ -6,3 +6,6 @@ tags:
     - notebook
 --- 
 # Database plan
+
+
+![tiff]({{ BASE_PATH }}/images/dbplan.tiff 
