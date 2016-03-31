@@ -8,4 +8,4 @@ tags:
 # Database plan
 
 
-![tiff]({{ BASE_PATH }}/images/dbplan.tiff)
+![png]({{ BASE_PATH }}/images/dbplan.png)
