@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "LinearRegression"
+title: "Linear Regression"
 tags:
     - python
     - notebook
