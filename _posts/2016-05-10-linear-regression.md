@@ -17,38 +17,38 @@ Coursera.
 
 From Andrew Ng's ML course:
 
-$h_\theta(x) = \theta_0x_0 + \theta_1 x_1 + ... \theta_n x_n$
+\\(h_\theta(x) = \theta_0x_0 + \theta_1 x_1 + ... \theta_n x_n\\)
 
-where $x_i$ is each feature in the model, and $x_0=1$ with $n$ the number of
-features. $\theta_i$ I refer to as the "feature parameters".
+where \\(x_i\\) is each feature in the model, and \\(x_0=1\\) with \\(n\\) the number of
+features. \\(\theta_i\\) I refer to as the "feature parameters".
 
 Can re-write this in vector notation as
 
-$h_\theta(x) = \Theta^Tx$
+\\(h_\theta(x) = \Theta^Tx\\)
 
-where $\Theta = [\theta_0, \theta_1, ..., \theta_n]$ and $x = [x_0, x_1, ... ,
-x_n]$
+where \\(\Theta = [\theta_0, \theta_1, ..., \theta_n]\\) and \\(x = [x_0, x_1, ... ,
+x_n]\\)
 
-These vectors have dimension $n+1$ to include the constant term/intercept
-$x_0=1$.
+These vectors have dimension \\(n+1\\) to include the constant term/intercept
+\\(x_0=1\\).
 
 ## Cost function
 
-The regression is performed by finding the $\Theta$ that minimize this cost
-function (Where $m$ is the number of data points):
+The regression is performed by finding the \\(\Theta\\) that minimize this cost
+function (Where \\(m\\) is the number of data points):
 
-$ J(\Theta) = \frac{1}{2m} \sum_{i+1}^m (\Theta^Tx^i - y^i)^2 $
+\\( J(\Theta) = \frac{1}{2m} \sum_{i+1}^m (\Theta^Tx^i - y^i)^2 \\)
 
 The cost function is minimized here via **gradient descent**
 
 Repeat {
 
-$\theta_j := \theta_j - \alpha \frac{\delta J(\Theta)}{\delta \theta_j} =
-\theta_j - \alpha \frac{1}{m} \sum_{i+1}^m (h_\theta(x^i) - y^i)x^i $
+\\(\theta_j := \theta_j - \alpha \frac{\delta J(\Theta)}{\delta \theta_j} =
+\theta_j - \alpha \frac{1}{m} \sum_{i+1}^m (h_\theta(x^i) - y^i)x^i \\)
 
 }
 
-simultaneously updating every feature parameter $j$. The index $i$ refers to the
+simultaneously updating every feature parameter \\(j\\). The index \\(i\\) refers to the
 individual data points.
 
 ## Feature scaling
@@ -63,37 +63,37 @@ that 2D space: because the salary feature takes a huge range of values compared
 to the children feature they will be elongated in the salary dimension. If this
 is the case, gradient descent will have trouble finding the minimum as it will
 oscillate around a lot on its way to the global minimum (a large step in
-$\delta$[number of children] is equivalent to a tiny step in $\delta$[salary]).
+\\(\delta\\)[number of children] is equivalent to a tiny step in \\(\delta\\)[salary]).
 
 To solve this problem we should set the features onto a similar scale, e.g.
 divide by the maximum values of each feature. A good aim is to get every feature
-approximately into a $-1<=x_i<=1$ range, though it's ok if they are not exactly
+approximately into a \\(-1<=x_i<=1\\) range, though it's ok if they are not exactly
 in this range, but are at least within the same order of magnitude as it.
 Possible ways to normalise:
 
 * divide by maximum value of feature (good if min is zero)
-* mean normalisation: replace $x_i$ by $(x_i - \mu_i)$ and divide by range
-* mean normalisation: replace $x_i$ by $(x_i - \mu_i)$ and divide by $s_i$
+* mean normalisation: replace \\(x_i\\) by \\((x_i - \mu_i)\\) and divide by range
+* mean normalisation: replace \\(x_i\\) by \\((x_i - \mu_i)\\) and divide by \\(s_i\\)
 
-where $\mu_i$ is the average value of the $x_i$ feature in the training set, and
-$s_i$ is the standard deviation of $x_i$.
+where \\(\mu_i\\) is the average value of the \\(x_i\\) feature in the training set, and
+\\(s_i\\) is the standard deviation of \\(x_i\\).
 
-## Learning rate $\alpha$
+## Learning rate \\(\alpha\\)
 
-It is helpful to plot the value of $J(\Theta)$ as a function of the number of
-interations. If gradient descent is working properly $J(\Theta)$ should decrease
-after every iteration. When $J(\Theta)$ flattens off we can find the number of
+It is helpful to plot the value of \\(J(\Theta)\\) as a function of the number of
+interations. If gradient descent is working properly \\(J(\Theta)\\) should decrease
+after every iteration. When \\(J(\Theta)\\) flattens off we can find the number of
 iterations it takes to converge (cost function no longer significantly decreases
 for new parameter updates). It is hard to tell in advance the number of
 iterations you will need for any particular application, but this can be played
 with.
 
-Automatic convergence tests are often used to declare convergence, e.g. $\Delta
-J(\Theta)<10^{-3}$, but these should be checked afterwards by plotting
-$J(\Theta)$ for example.
+Automatic convergence tests are often used to declare convergence, e.g. \\(\Delta
+J(\Theta)<10^{-3}\\), but these should be checked afterwards by plotting
+\\(J(\Theta)\\) for example.
 
 If the gradient descent does not appear to be working, try using a smaller value
-for $\alpha$. But if $\alpha$ is too small gradient descent will be slow to
+for \\(\alpha\\). But if \\(\alpha\\) is too small gradient descent will be slow to
 converge, potentially prohibitively so.
 
 ## Choosing features
@@ -105,9 +105,9 @@ could result in a better model.
 ## Polynomial regression
 
 It's easy to see how we can extend this to polynomial regression by rewriting
-$h_\theta(x)$ e.g.
+\\(h_\theta(x)\\) e.g.
 
-$h_\theta(x) = \theta_0 x_0 + \theta_1 x_1 + \theta_2 x_1^2 $
+\\(h_\theta(x) = \theta_0 x_0 + \theta_1 x_1 + \theta_2 x_1^2 \\)
 
 Warning: feature scaling becomes even more important here!
 
@@ -121,24 +121,24 @@ the differential to zero.
 
 Normal equation:
 
-Place all features into a matrix of $m$ rows (data points) by $n+1$ columns
-(features) called $X$. And also the values of the feature to be predicted into a
-$m$ rows (data points) by 1 vector called $y$ (because just single value to
+Place all features into a matrix of \\(m\\) rows (data points) by \\(n+1\\) columns
+(features) called \\(X\\). And also the values of the feature to be predicted into a
+\\(m\\) rows (data points) by 1 vector called \\(y\\) (because just single value to
 predict here):
 
-$\Theta = (X^TX)^{-1}X^Ty $
+\\(\Theta = (X^TX)^{-1}X^Ty \\)
 
 Each training example gives a feature vector, and these are used to make the
-"design matrix" $X$. So each column feature vector $x$ is transposed and put
-into a row of $X$. The above equation gives the optimal value of $\Theta$ at the
+"design matrix" \\(X\\). So each column feature vector \\(x\\) is transposed and put
+into a row of \\(X\\). The above equation gives the optimal value of \\(\Theta\\) at the
 minimum of the cost value.
 
 With this method feature scaling is not necessary. You also don't need to choose
 a learning rate and don't have to iterate.
 
-However when there are are large number of features $n$ the Normal Equation is
-very slow if $n$ is large, because you have to invert $n$X$n$ matrix. The cost
-of inverting a matrix is $O(n^3)$ so should rethink using this if $n>10000$.
+However when there are are large number of features \\(n\\) the Normal Equation is
+very slow if \\(n\\) is large, because you have to invert \\(n\\)X\\(n\\) matrix. The cost
+of inverting a matrix is \\(O(n^3)\\) so should rethink using this if \\(n>10000\\).
 
 ## Python implementation of linear regression
 
@@ -268,8 +268,7 @@ def gradient_descent(theta, X, y, alpha, niter=100):
 {% endhighlight %}
  
 Test this implementation using the data sets supplied with exercise 1 of Andrew
-Ng's course. The data below is simply
-the population of a city versus the profit of a food truck in that city. 
+Ng's course. The data below is simply the population of a city versus the profit of a food truck in that city. 
 
 **In [19]:**
 
@@ -310,7 +309,7 @@ print "On first iteration, value of cost function =", cost_function(theta, x, y)
  
 ## Visualize the cost function
 
-For a grid of likely $\Theta$ parameters calculate the values of the cost
+For a grid of likely \\(\Theta\\) parameters calculate the values of the cost
 function and plot 
 
 **In [20]:**
@@ -361,12 +360,6 @@ ax.set_ylabel('$\Theta_1$', fontsize=24)
 {% endhighlight %}
 
     At minimum of array: Theta_0 = -3.93939393939 Theta_1 = 1.20183486239
-
-
-
-
-
-
 
  
 ![png]({{ BASE_PATH }}/images/linearregression_5_2.png) 
@@ -425,11 +418,6 @@ ax.set_ylabel('$J(\Theta)$', fontsize=24)
 
 
 
-
-    <matplotlib.text.Text at 0x113a4bfd0>
-
-
-
  
 ![png]({{ BASE_PATH }}/images/linearregression_7_2.png) 
 
@@ -457,10 +445,6 @@ handles, labels = ax.get_legend_handles_labels()
 ax.legend(prop={'size':12}, loc='upper left')
 {% endhighlight %}
 
-
-
-
-    <matplotlib.legend.Legend at 0x1141b8850>
 
 
 
@@ -497,10 +481,6 @@ ax.legend(prop={'size':12}, loc='upper left')
     scikit learn result: Theta_0 (intercept) = -3.89578087831 Theta_1 (slope) = 1.19303364419
 
 
-
-
-
-    <matplotlib.legend.Legend at 0x11421da50>
 
 
 
@@ -564,8 +544,6 @@ ax.set_ylabel('number of bedrooms', fontsize=24)
 
 
 
-
-    <matplotlib.text.Text at 0x112e73a10>
 
 
 
@@ -641,10 +619,6 @@ ax.set_ylabel('$J(\Theta)$', fontsize=24)
 
 
 
-    <matplotlib.text.Text at 0x11610b210>
-
-
-
  
 ![png]({{ BASE_PATH }}/images/linearregression_18_2.png) 
 
@@ -678,9 +652,6 @@ ax.set_ylabel('House price', fontsize=24)
 {% endhighlight %}
 
 
-
-
-    <matplotlib.text.Text at 0x115954350>
 
 
 
@@ -737,8 +708,6 @@ ax.set_ylabel('House price', fontsize=24)
 
 
 
-
-    <matplotlib.text.Text at 0x112c54890>
 
 
 
