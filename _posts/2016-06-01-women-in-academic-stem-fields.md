@@ -266,11 +266,11 @@ print data.head(5)
     4                       Physics  1.0  Assistant Research Scientist, Physics   
     
        State Fund Ratio  first_names surname   gender Academic?  STEM?  \
-    0               0.0     Gisela M   Aaron   female      True  False   
-    1             100.0    Michael E   Aaron     male     False  False   
-    2              40.0  Stephanie C  Abalos   female      True  False   
-    3             100.0      Yuxuf A   Abana  unknown      True  False   
-    4               0.0   Sabina J A   Abate   female      True   True   
+    0               0.0     ********   *****   female      True  False   
+    1             100.0     ********   *****     male     False  False   
+    2              40.0     ********   *****   female      True  False   
+    3             100.0     ********   *****  unknown      True  False   
+    4               0.0     ********   *****   female      True   True   
     
         Department type            Job group  
     0      Professional                other  
