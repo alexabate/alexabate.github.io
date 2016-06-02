@@ -183,10 +183,10 @@ To estimate the approximate error rate for the employees who did get classed
 with a gender, I first estimated the sample size required to provide a 95%
 confidence level for a margin of error of 1% in the error rate:
 
-\\(
+$$
 n_{sample} = \frac{z_{score} \sigma(1-\sigma)}{MOE} = \frac{1.96*0.5^2}{0.01} =
 49
-\\)
+$$
 
 where I assumed the standard deviation for the error rate \\(\sigma\\), which can
 take values between 0 (no wrong classifications) and 1 (all classifications
@@ -301,10 +301,10 @@ age female and males in the USA.
 The standard error of the difference between the estimated proportions of
 population 1 (\\(\hat{p}_1\\)) and population 2 (\\(\hat{p}_2\\)) is:
 
-\\(
+$$
 \sigma_{\hat{p}_1-\hat{p}_2} = \sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} +
 \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}
-\\)
+$$
 
 i.e. \\(\hat{p}_1\\) and \\(\hat{p}_2\\) are the population proportions estimated from
 the University of Arizona data, and \\(n_1\\) and \\(n_2\\) are the respective sample
