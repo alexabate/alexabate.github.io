@@ -119,6 +119,7 @@ that:
 
 
 From the comments in the code above you can see the data set contains:
+
 - employee name
 - job title
 - annual salary (at full time equivalency)
@@ -289,6 +290,7 @@ in the following results.
 
 From other sources I found the [percentage of women of working
 age](https://www.dol.gov/wb/stats/latest_annual_data.htm) in the United States:
+
 - female 51.7%
 - male 48.3%
 
@@ -309,9 +311,9 @@ the University of Arizona data, and \\(n_1\\) and \\(n_2\\) are the respective s
 sizes. The p-value for the difference in these populations is calculated from
 the \\(z\\)-score:
 
-\\(
+\\\(
 z = \frac{(\hat{p}_1-\hat{p}_2)(p_1-p_2)}{\sigma_{\hat{p}_1-\hat{p}_2}}
-\\)
+\\\)
 
 where \\(p_1\\) and \\(p_2\\) are the actual population proportions, i.e. those found
 from the Department of Labor's statistics on the percentage of women of working
