@@ -575,9 +575,6 @@ fig.suptitle('')
 
 
 
-    <matplotlib.text.Text at 0x7f38d150aa90>
-
-
 
  
 ![png]({{ BASE_PATH }}/images/women-in-academic-stem-fields_9_1.png) 
@@ -676,8 +673,6 @@ fig.suptitle('')
 
 
 
-    <matplotlib.text.Text at 0x7f38d6e1fe50>
-
 
 
  
@@ -707,7 +702,6 @@ being around 60%, whereas for Professional and Natural Sciences it is around
 Social Sciences groups, with much few individual departments included in their
 types, so it's difficult to draw any conclusions.
 
-*Actually do an analysis to show how significant the 60% vs 70% is?* 
 
 **In [12]:**
 
@@ -804,10 +798,6 @@ fig.suptitle('')
     dtype: float64
 
 
-
-
-
-    <matplotlib.text.Text at 0x7f38d0faed10>
 
 
 
@@ -1001,25 +991,6 @@ fig.suptitle('')
     professor                48   267
     senior scientist          7    20
     student                  40    42
-
-
-    /home/alex/anaconda/lib/python2.7/site-packages/IPython/kernel/__main__.py:108: SettingWithCopyWarning: 
-    A value is trying to be set on a copy of a slice from a DataFrame.
-    Try using .loc[row_indexer,col_indexer] = value instead
-    
-    See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
-    /home/alex/anaconda/lib/python2.7/site-packages/IPython/kernel/__main__.py:113: SettingWithCopyWarning: 
-    A value is trying to be set on a copy of a slice from a DataFrame.
-    Try using .loc[row_indexer,col_indexer] = value instead
-    
-    See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
-
-
-
-
-
-    <matplotlib.text.Text at 0x7f38d705fbd0>
-
 
 
  
