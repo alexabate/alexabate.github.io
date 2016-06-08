@@ -10,9 +10,9 @@ tags:
 This is similar to linear regression, except now the variable we want to predict
 can only take discrete values. E.g. this binary classification problem:
 
-$$
+\\(
  y \in \{0, 1\}
-$$
+\\)
 
 0: negative class (e.g. absense of something, tumor is benign)
 1: positive class (e.g. presense of something, tumor is malignant)
