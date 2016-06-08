@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "map-income-tucson"
+title: "Hack for Change"
 tags:
     - python
     - notebook
