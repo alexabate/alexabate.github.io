@@ -119,6 +119,7 @@ that:
 
 
 From the comments in the code above you can see the data set contains:
+
 - employee name
 - job title
 - annual salary (at full time equivalency)
@@ -182,10 +183,10 @@ To estimate the approximate error rate for the employees who did get classed
 with a gender, I first estimated the sample size required to provide a 95%
 confidence level for a margin of error of 1% in the error rate:
 
-\\(
+$$
 n_{sample} = \frac{z_{score} \sigma(1-\sigma)}{MOE} = \frac{1.96*0.5^2}{0.01} =
 49
-\\)
+$$
 
 where I assumed the standard deviation for the error rate \\(\sigma\\), which can
 take values between 0 (no wrong classifications) and 1 (all classifications
@@ -266,11 +267,11 @@ print data.head(5)
     4                       Physics  1.0  Assistant Research Scientist, Physics   
     
        State Fund Ratio  first_names surname   gender Academic?  STEM?  \
-    0               0.0     Gisela M   Aaron   female      True  False   
-    1             100.0    Michael E   Aaron     male     False  False   
-    2              40.0  Stephanie C  Abalos   female      True  False   
-    3             100.0      Yuxuf A   Abana  unknown      True  False   
-    4               0.0   Sabina J A   Abate   female      True   True   
+    0               0.0     ********   *****   female      True  False   
+    1             100.0     ********   *****     male     False  False   
+    2              40.0     ********   *****   female      True  False   
+    3             100.0     ********   *****  unknown      True  False   
+    4               0.0     ********   *****   female      True   True   
     
         Department type            Job group  
     0      Professional                other  
@@ -289,6 +290,7 @@ in the following results.
 
 From other sources I found the [percentage of women of working
 age](https://www.dol.gov/wb/stats/latest_annual_data.htm) in the United States:
+
 - female 51.7%
 - male 48.3%
 
@@ -299,19 +301,19 @@ age female and males in the USA.
 The standard error of the difference between the estimated proportions of
 population 1 (\\(\hat{p}_1\\)) and population 2 (\\(\hat{p}_2\\)) is:
 
-\\(
+$$
 \sigma_{\hat{p}_1-\hat{p}_2} = \sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} +
 \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}
-\\)
+$$
 
 i.e. \\(\hat{p}_1\\) and \\(\hat{p}_2\\) are the population proportions estimated from
 the University of Arizona data, and \\(n_1\\) and \\(n_2\\) are the respective sample
 sizes. The p-value for the difference in these populations is calculated from
-the \\(z\\)-score:
+the z-score: 
 
-\\(
+$$
 z = \frac{(\hat{p}_1-\hat{p}_2)(p_1-p_2)}{\sigma_{\hat{p}_1-\hat{p}_2}}
-\\)
+$$
 
 where \\(p_1\\) and \\(p_2\\) are the actual population proportions, i.e. those found
 from the Department of Labor's statistics on the percentage of women of working
@@ -575,9 +577,6 @@ fig.suptitle('')
 
 
 
-    <matplotlib.text.Text at 0x7f38d150aa90>
-
-
 
  
 ![png]({{ BASE_PATH }}/images/women-in-academic-stem-fields_9_1.png) 
@@ -676,8 +675,6 @@ fig.suptitle('')
 
 
 
-    <matplotlib.text.Text at 0x7f38d6e1fe50>
-
 
 
  
@@ -707,7 +704,6 @@ being around 60%, whereas for Professional and Natural Sciences it is around
 Social Sciences groups, with much few individual departments included in their
 types, so it's difficult to draw any conclusions.
 
-*Actually do an analysis to show how significant the 60% vs 70% is?* 
 
 **In [12]:**
 
@@ -804,10 +800,6 @@ fig.suptitle('')
     dtype: float64
 
 
-
-
-
-    <matplotlib.text.Text at 0x7f38d0faed10>
 
 
 
@@ -1001,25 +993,6 @@ fig.suptitle('')
     professor                48   267
     senior scientist          7    20
     student                  40    42
-
-
-    /home/alex/anaconda/lib/python2.7/site-packages/IPython/kernel/__main__.py:108: SettingWithCopyWarning: 
-    A value is trying to be set on a copy of a slice from a DataFrame.
-    Try using .loc[row_indexer,col_indexer] = value instead
-    
-    See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
-    /home/alex/anaconda/lib/python2.7/site-packages/IPython/kernel/__main__.py:113: SettingWithCopyWarning: 
-    A value is trying to be set on a copy of a slice from a DataFrame.
-    Try using .loc[row_indexer,col_indexer] = value instead
-    
-    See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
-
-
-
-
-
-    <matplotlib.text.Text at 0x7f38d705fbd0>
-
 
 
  
