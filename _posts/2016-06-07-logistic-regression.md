@@ -14,7 +14,7 @@ can only take discrete values. E.g. this binary classification problem:
  y \in \{0, 1\}
 \\)
 
-0: negative class (e.g. absense of something, tumor is benign)
+0: negative class (e.g. absense of something, tumor is benign)  
 1: positive class (e.g. presense of something, tumor is malignant)
 
 Therefore the logistic regression algorithm must always return a value for the
@@ -26,12 +26,11 @@ Again following Andrew Ng's ML course, we want \\(0 \le h_\theta(x) \le 1\\), so
 now:
 
 $$
-h_\theta(x) = g(\Theta^Tx) $$, where:
-$$
-g(z) =\frac{1}{1+e^{-z}}
-$$
+h_\theta(x) = g(\Theta^Tx) $$
 
-and \\(g(z)\\) is called the sigmoid function or logistic function. So:
+where $$
+g(z) =\frac{1}{1+e^{-z}}
+$$ and \\(g(z)\\) is called the sigmoid function or logistic function. So:
 
 $$
 h_\theta(x) = \frac{1}{1+e^{-\Theta^Tx}} 
