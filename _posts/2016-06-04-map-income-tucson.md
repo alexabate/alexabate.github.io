@@ -546,7 +546,7 @@ mp.create_map(path='tucson.html', plugin_data_out=False)
  
 ## Map!
 
-Here is the [_map_](http://u.arizona.edu/~abate/arizona.html). Unfortunately we
+Here is a link to the [_map_](http://u.arizona.edu/~abate/arizona.html). Unfortunately we
 ran out of time before being able to add a toggle to toggle between median
 income and another dataset (e.g. population density). This particular
 visualisation would also be served better by higher resolution income data than
