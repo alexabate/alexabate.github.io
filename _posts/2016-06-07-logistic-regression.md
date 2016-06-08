@@ -25,13 +25,17 @@ hypothesis that is between 0 and 1.
 Again following Andrew Ng's ML course, we want \\(0 \le h_\theta(x) \le 1\\), so
 now:
 
-\\(h_\theta(x) = g(\Theta^Tx) \\), where:
-
-\\(g(z) =\frac{1}{1+e^{-z}}\\)
+$$
+h_\theta(x) = g(\Theta^Tx) $$, where:
+$$
+g(z) =\frac{1}{1+e^{-z}}
+$$
 
 and \\(g(z)\\) is called the sigmoid function or logistic function. So:
 
-\\(h_\theta(x) = \frac{1}{1+e^{-\Theta^Tx}} \\)
+$$
+h_\theta(x) = \frac{1}{1+e^{-\Theta^Tx}} 
+$$
 
 Let's plot the sigmoid function below 
 
