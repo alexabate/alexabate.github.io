@@ -25,7 +25,7 @@ The "terms" in the resulting restaurant - term matrix needed to be cleaned: term
 
 I then clustered the restaurants based upon their term weight values. The idea of this is to refine the extremely noisy categorisation of the restaurants by Foursquare users, down from over 200 separate categories (ones that included "Museum" and "Pet Store" to a more manageable number. I used k means to find 20 clusters based upon a distance between restaurants in TF-IDF term-weight space defined by the cosine similarity. I chose k means to begin with because of its simplicity and also because I had a good idea of what the number of k clusters should be a priori. Manually assigning the 200+ Foursquare categories into restaurants with different cuisine types (or into "other" type) resulted in about 20 reasonably broad categories. 
 
-I validated the clusters (and the choice of k=20) by studying the frequencies of the top Foursquare categories, the top weighted terms, and the price distribution of all restaurants in the cluster. The clusters came out as shown in the following list. The head of the list gives the most frequent Foursquare category in the cluster, the five words after the colon are the top five terms in that cluster.
+I validated the clusters (and the choice of k=20) by studying the frequencies of the top Foursquare categories, the top weighted terms, and the price distribution of all restaurants in the cluster. The clusters came out as shown in the following list. The head of the list gives the most frequent Foursquare category in the cluster, the five words after the colon are the top five terms in that cluster:
 
 * Mexican Restaurant: taco, margarita, burrito, mexican, guacamole
 * Ramen Restaurant (Noodles): ramen, broth, pork, noodle, spicy
@@ -63,8 +63,8 @@ Finally, to relate the data of the restaurants (term-frequency and metadata) to 
 
 # Example Analysis
 
-Let's compare neighborhoods that have an excess of Baby Boomers or an excess of Millennials
+Let's compare neighborhoods that have an excess of Baby Boomers or an excess of Millennials:
 
-![boomers]({{ BASE_PATH }}/images/boomers.png) | ![mills]({{ BASE_PATH }}/images/boommills.png)
+![maps]({{ BASE_PATH }}/images/boommills.png)
 
 
