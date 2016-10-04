@@ -64,6 +64,7 @@ Finally, to relate the data of the restaurants (term-frequency and metadata) to 
 # Example Analysis
 
 Let's compare neighborhoods that have an excess of Baby Boomers or an excess of Millennials
+
 ![png]({{ BASE_PATH }}/images/boomers.png) 
 
 
