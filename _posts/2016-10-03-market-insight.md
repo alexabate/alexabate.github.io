@@ -28,8 +28,8 @@ I validated the clusters (and the choice of k=20) by studying the frequencies of
 
 | Mexican Restaurant          | Ramen Restaurant | American Restaurant | Pizza Place | Burger Joint |
 ------------------------------|:----------------:|--------------------:|------------:|-------------:|
-| taco           | 106.074854  |
-| margarita      |  56.581771  | 
+| taco           | 106.074854  | ramen | 46.509661 | brunch | 58.564862 |pizza | 168.125799 | burger |  113.913363|
+| margarita      |  56.581771  | |
 | burrito        |  50.611620  |
 | mexican        |  33.425526  |
 | guacamole      |  26.936074  |
@@ -40,7 +40,7 @@ I validated the clusters (and the choice of k=20) by studying the frequencies of
 | mexican food   |  13.589426  |
 
 
-ramen        46.509661
+
 broth         7.054914
 pork          6.607530
 noodle        6.235213
@@ -55,7 +55,7 @@ dtype: float64
 
 American
 Restaurant
-brunch       58.564862
+
 egg          35.626095
 burger       35.155186
 cocktail     26.592421
