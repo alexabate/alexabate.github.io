@@ -61,4 +61,9 @@ I also downloaded the GeoJSON file containing the details of the New York State 
 
 Finally, to relate the data of the restaurants (term-frequency and metadata) to the census tracts I used the Shapely package. Given a coordinate point and a geometry defined by a polygon given in the GeoJSON file the Shapely.geometry package can return whether or not the coordinate point lies within the polygon. There were some failures when using this to assign a census tract to a restaurant location but mostly they were due to the restaurant location lying exactly on a border between two census tracts. To resolve this failure I simply assigned the restaurant to the tract with the physically closest central coordinate.
 
-# Data Story
+# Example Analysis
+
+Let's compare neighborhoods that have an excess of Baby Boomers or an excess of Millennials
+![png]({{ BASE_PATH }}/images/boomers.png) 
+
+
