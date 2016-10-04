@@ -25,17 +25,17 @@ The "terms" in the resulting restaurant - term matrix needed to be cleaned: term
 
 I then clustered the restaurants based upon their term weight values. The idea of this is to refine the extremely noisy categorisation of the restaurants by Foursquare users, down from over 200 separate categories (ones that included "Museum" and "Pet Store" to a more manageable number. I used k means to find 20 clusters based upon a distance between restaurants in TF-IDF term-weight space defined by the cosine similarity. I chose k means to begin with because of its simplicity and also because I had a good idea of what the number of k clusters should be a priori. Manually assigning the 200+ Foursquare categories into restaurants with different cuisine types (or into "other" type) resulted in about 20 reasonably broad categories. 
 
-I validated the clusters (and the choice of k=20) by studying the frequencies of the top Foursquare categories, the top weighted terms, and the price distribution of all restaurants in the cluster. The clusters came out as shown in the following list. Where first restaurant type below is the most frequent Foursquare category in the cluster and is assigned to that cluster, except when there is a word in brackets after it, then this is the refined restaurant category of the cluster. The next five words are the top five terms in that cluster.
+I validated the clusters (and the choice of k=20) by studying the frequencies of the top Foursquare categories, the top weighted terms, and the price distribution of all restaurants in the cluster. The clusters came out as shown in the following list. The head of the list gives the most frequent Foursquare category in the cluster, the five words after the colon are the top five terms in that cluster.
 
 * Mexican Restaurant: taco, margarita, burrito, mexican, guacamole
 * Ramen Restaurant (Noodles): ramen, broth, pork, noodle, spicy
 * American Restaurant (Brunch and Breakfast): brunch, egg, burger, cocktail, breakfast
-* Pizza place (cheap): pizza, slice, best pizza, crust, good pizza
+* Pizza place (Pizza cheap): pizza, slice, best pizza, crust, good pizza
 * Burger Joint: burger, fries, shake , best burger, shack
-* Pizza Place (expensive): pizza, slice, pasta, pepperoni, crust
+* Pizza Place (Pizza expensive): pizza, slice, pasta, pepperoni, crust
 * Deli/Bodega (other): rice, sandwich, falafel, line, bowl
 * French Restaurant (Fancy): steak, wine, cocktail, brunch, lamb, oyster
-* Coffee Shop (general): latte, iced, espresso, wifi, brew
+* Coffee Shop (Coffee general): latte, iced, espresso, wifi, brew
 * Bagel Shop: bagel, cream cheese, cream, lox, egg 
 * Sandwich Place: sandwich, soup, breakfast, egg, wrap
 * Chinese Restaurant (Asian): noodle, dumpling, thai, soup, pork
@@ -47,4 +47,6 @@ I validated the clusters (and the choice of k=20) by studying the frequencies of
 * Juice Bar (Juice/Veg/Healthy): juice, smoothie, green, bowl, protein
 * Coffee Shop (Starbucks): starbucks, barista, line, bathroom, outlet
 * Bubble Tea Shop (Tea and Boba): tea, bubble, bubble tea, milk, green tea
+
+In most cases the most frequent Foursquare category is assigned to be the label of that cluster. However, except when there is a word in brackets after it, this is assigned to be the label instead. A couple of notes about the labelling: the "pizza" labels were assigned by looking at the price differences between the two clusters: one was clearly skewed low and the other high. The "Starbucks" label was assigned because 99% of all the restaurants in this cluster were Starbucks, while zero of the restaurants in the other coffee category were Starbucks.
 
