@@ -50,3 +50,7 @@ I validated the clusters (and the choice of k=20) by studying the frequencies of
 
 In most cases the most frequent Foursquare category is assigned to be the label of that cluster. However, except when there is a word in brackets after it, this is assigned to be the label instead. A couple of notes about the labelling: the "pizza" labels were assigned by looking at the price differences between the two clusters: one was clearly skewed low and the other high. The "Starbucks" label was assigned because 99% of all the restaurants in this cluster were Starbucks, while zero of the restaurants in the other coffee category were Starbucks.
 
+![png]({{ BASE_PATH }}/images/pca.png) 
+
+
+Switching gears to the public data, I used the demographics data from the American Community Survey. I used the United State's Census Bureau's [API](https://www.census.gov/developers/), querying it for all the relevant fields (age, gender, median income, education) and specifying only New York County (county FIPS code = '061').
