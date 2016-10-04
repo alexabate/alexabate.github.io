@@ -26,7 +26,7 @@ I then clustered the restaurants based upon their term weight values. The idea o
 I validated the clusters (and the choice of k=20) by studying the frequencies of the top Foursquare categories, the top weighted terms, and the price distribution of all restaurants in the cluster.
 
 
-| Mexican Restaurant          | Ramen Restaurant
+| Mexican Restaurant          | Ramen Restaurant | American Restaurant | Pizza Place | Burger Joint |
 | taco            106.074854  |
 | margarita        56.581771  | 
 | burrito          50.611620  |
