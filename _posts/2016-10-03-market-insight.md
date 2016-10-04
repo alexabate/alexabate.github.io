@@ -65,6 +65,6 @@ Finally, to relate the data of the restaurants (term-frequency and metadata) to 
 
 Let's compare neighborhoods that have an excess of Baby Boomers or an excess of Millennials
 
-![boomers]({{ BASE_PATH }}/images/boomers.png) | ![mills]({{ BASE_PATH }}/images/mills.png)
+![boomers]({{ BASE_PATH }}/images/boomers.png) | ![mills]({{ BASE_PATH }}/images/boommills.png)
 
 
