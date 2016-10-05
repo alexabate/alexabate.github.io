@@ -7,7 +7,9 @@ tags:
 --- 
 ## Market Insight: Visualise the potential of NYC restaurant markets
 
-My project was to use [Foursquare](https://foursquare.com/) restaurant comments data and [Census demographics data](http://www.census.gov/data.html) to develop an analytics tool that shows the features of a neighborhood so that a business could decide how/if to enter into the restaurant market there.
+I created the Market Insight tool over a period of three weeks during the [Insight Data Science](www.insightdatascience.com) program.
+
+The project used [Foursquare](https://foursquare.com/) restaurant comments data and [Census demographics data](http://www.census.gov/data.html) to develop an analytics tool that shows the features of a neighborhood so that a business could decide how/if to enter into the restaurant market there.
  
 My approach to this problem, to identify the potential customers and their interests in order to enable an estimation of the market size, is to combine crowdsourced and public data sets of all Manhattan neighborhoods.
  
@@ -73,4 +75,12 @@ The Baby Boomers are mostly clustered around the east side of the park, and the 
 
 ![maps]({{ BASE_PATH }}/images/restos.png)
 
-The black outline bars show the baseline distribution of restaurant categories over all of Manhattan (and so are identical in left and right plots). The pink bars show the distribution of the restaurant categories in each type of neighborhood (left Baby Boom, right Millennial). Many things make intuitive sense, e.g. the excess of bars in the Millennial neighborhoods and the corresponding decrement in Baby Boomer neighborhoods. In particular we notice an excess of "fancy" restaurants in Baby Boomer neightborhoods coupled with a decrement of Mexican restaurants: perhaps an untapped market in these neighborhoods could be an upscale Mexican restaurant?
+The black outline bars show the baseline distribution of restaurant categories over all of Manhattan (and so are identical in left and right plots). The pink bars show the distribution of the restaurant categories in each type of neighborhood (left Baby Boom, right Millennial). Many things make intuitive sense, e.g. the excess of bars in the Millennial neighborhoods and the corresponding decrement in Baby Boomer neighborhoods. In particular we notice an excess of "fancy" restaurants in Baby Boomer neightborhoods coupled with a decrement of Mexican restaurants: *perhaps an untapped market in these neighborhoods could be an upscale Mexican restaurant?*
+
+## The Tool
+
+A user types an address located in Manhattan, and a series of diagnostics are returned including an emphasis on what is unusual or an outlier about a neightborhood with significance estimates and a list of other areas containing similar neighborhoods.
+
+## In summary
+
+My project provides and overview of the customer demographics in an area. It enables the identification of the excess or decrement of any restaurant category in a neighborhood compared to the more global area. It also provides a list of areas containing neighborhoods with the most similar conditions. All this is in order to provide information for making data driven insights.
