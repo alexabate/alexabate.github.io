@@ -69,4 +69,7 @@ Let's compare neighborhoods that have an excess of Baby Boomers or an excess of 
 
 ![maps]({{ BASE_PATH }}/images/boommills.png)
 
-The Baby Boomers are mostly clustered around the east side of the park, and the Millennials tend to be more downtown/lower Manhattan.
+The Baby Boomers are mostly clustered around the east side of the park, and the Millennials tend to be more downtown/lower Manhattan. We can also compare the distribution of restaurant types in both neighborhoods:
+
+![maps]({{ BASE_PATH }}/images/restos.png)
+
