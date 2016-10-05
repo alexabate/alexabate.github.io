@@ -61,6 +61,7 @@ The plot below shows the first two principal components of the restaurant - term
 
 Switching gears to the public data, I used the demographics data from the American Community Survey. I used the United State's Census Bureau's [API](https://www.census.gov/developers/), querying it for all the relevant fields (age, gender, median income, education) and specifying only New York County (county FIPS code = '061') and had the data returned at the level of a census tract. A census tract is a small subdivision of a county which contains around 1000 to 4000 residents.
 
+Here's a taste of the census data. There is some trend of a neighborhood having a larger amount of millennials has a larger median income. The fraction of women in neighborhoods is consistently higher than the fraction of men as can be seen from the larger density of red points greater than 0.5.
 ![census1]({{ BASE_PATH }}/images/census_plot1.png) | ![census2]({{ BASE_PATH }}/images/men_women.png)
 
 I also downloaded the GeoJSON file containing the details of the New York State census tracts. I created a new file by pulling out only the New York Country tracts and additionally removing unuseful tracts (those containing zero or anomolously low populations, e.g. tracts over public parks etc) to reduce the file to only the areas I wanted to focus on.
