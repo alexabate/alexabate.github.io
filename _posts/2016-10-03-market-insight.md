@@ -118,4 +118,4 @@ A user types an address located in Manhattan, and a series of diagnostics are re
 
 # In summary
 
-My project provides and overview of the customer demographics in an area. It enables the identification of the excess or decrement of any restaurant category in a neighborhood compared to the more global area. It also provides a list of areas containing neighborhoods with the most similar conditions. All this is in order to provide information for making data driven insights.
+My project provides an overview of the customer demographics in an area. It enables the identification of the excess or decrement of any restaurant category in a neighborhood compared to the more global area. It also provides a list of areas containing neighborhoods with the most similar conditions. All this is in order to provide information for making data driven insights.
