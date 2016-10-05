@@ -69,7 +69,8 @@ Let's compare neighborhoods that have an excess of Baby Boomers or an excess of 
 
 ![maps]({{ BASE_PATH }}/images/boommills.png)
 
-The Baby Boomers are mostly clustered around the east side of the park, and the Millennials tend to be more downtown/lower Manhattan. We can also compare the distribution of restaurant types in both neighborhoods:
+The Baby Boomers are mostly clustered around the east side of the park, and the Millennials tend to be more downtown/lower Manhattan. We can also compare the distribution of restaurant categories in both neighborhoods:
 
 ![maps]({{ BASE_PATH }}/images/restos.png)
 
+The black outline bars show the baseline distribution of restaurant categories over all of Manhattan (and so are identical in left and right plots). The pink bars show the distribution of the restaurant categories in each type of neighborhood (left Baby Boom, right Millennial). Many things make intuitive sense, e.g. the excess of bars in the Millennial neighborhoods and the corresponding decrement in Baby Boomer neighborhoods. In particular we notice an excess of "fancy" restaurants in Baby Boomer neightborhoods coupled with a decrement of Mexican restaurants: perhaps an untapped market in these neighborhoods could be an upscale Mexican restaurant?
