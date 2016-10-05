@@ -56,7 +56,7 @@ In most cases the most frequent Foursquare category is assigned to be the label 
 
 The plot below shows the first two principal components of the restaurant - term matrix. The colors show the different clusters and this PCA analysis demonstrates that the clustering does pull out the distinct categories, although they are (as would be expected) noisy.
 
-![png]({{ BASE_PATH }}/images/pca.png) 
+![pca]({{ BASE_PATH }}/images/pca.png) 
 
 
 Switching gears to the public data, I used the demographics data from the American Community Survey. I used the United State's Census Bureau's [API](https://www.census.gov/developers/), querying it for all the relevant fields (age, gender, median income, education) and specifying only New York County (county FIPS code = '061') and had the data returned at the level of a census tract. A census tract is a small subdivision of a county which contains around 1000 to 4000 residents.
@@ -69,11 +69,11 @@ Finally, to relate the data of the restaurants (term-frequency and metadata) to 
 
 Let's compare neighborhoods that have an excess of Baby Boomers or an excess of Millennials:
 
-![maps]({{ BASE_PATH }}/images/boommills.png)
+![boomer map]({{ BASE_PATH }}/images/boommills.png)
 
 The Baby Boomers are mostly clustered around the east side of the park, and the Millennials tend to be more downtown/lower Manhattan. We can also compare the distribution of restaurant categories in both neighborhoods:
 
-![maps]({{ BASE_PATH }}/images/restos.png)
+![millennial map]({{ BASE_PATH }}/images/restos.png)
 
 The black outline bars show the baseline distribution of restaurant categories over all of Manhattan (and so are identical in left and right plots). The pink bars show the distribution of the restaurant categories in each type of neighborhood (left Baby Boom, right Millennial). Many things make intuitive sense, e.g. the excess of bars in the Millennial neighborhoods and the corresponding decrement in Baby Boomer neighborhoods. In particular we notice an excess of "fancy" restaurants in Baby Boomer neightborhoods coupled with a decrement of Mexican restaurants: *perhaps an untapped market in these neighborhoods could be an upscale Mexican restaurant?*
 
@@ -90,7 +90,7 @@ A user types an address located in Manhattan, and a series of diagnostics are re
     Neighborhood is in top 3% for highly educated
     Neighborhood is in top 9% for income
     
-![maps]({{ BASE_PATH }}/images/demos.png)
+![histogram of outliers]({{ BASE_PATH }}/images/demos.png)
 
     Total number of restaurants in neighborhood = 84
     
@@ -98,7 +98,7 @@ A user types an address located in Manhattan, and a series of diagnostics are re
     Significant excess of “SANDWICHES” (p = 0.000)
     Significant excess of “FANCY” (p = 0.000)
     
-![maps]({{ BASE_PATH }}/images/restos_eg.png)
+![reataurant distribution]({{ BASE_PATH }}/images/restos_eg.png)
     
     These areas contain neighborhoods that are similar:
     Hudson Yards-Chelsea-Flatiron-Union Square
