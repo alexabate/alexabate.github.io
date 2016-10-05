@@ -79,7 +79,7 @@ The black outline bars show the baseline distribution of restaurant categories o
 
 # The Tool
 
-A user types an address located in Manhattan, and a series of diagnostics are returned including an emphasis on what is unusual or an outlier about a neightborhood with significance estimates and a list of other areas containing similar neighborhoods. For example typing 45 W 25th Street returns:
+A user types an address located in Manhattan, and a series of diagnostics are returned including an emphasis on what is unusual or an outlier about a neightborhood with significance estimates and a list of other areas containing similar neighborhoods. For example typing `45 W 25th Street` returns:
 
     You are in Hudson Yards-Chelsea-Flatiron-Union Square
 
@@ -89,12 +89,16 @@ A user types an address located in Manhattan, and a series of diagnostics are re
     Neighborhood is in top 22% for men
     Neighborhood is in top 3% for highly educated
     Neighborhood is in top 9% for income
+    
+![maps]({{ BASE_PATH }}/images/demos.png)
 
     Total number of restaurants in neighborhood = 84
     
     Significant excess of “BAR” (p = 0.008)
     Significant excess of “SANDWICHES” (p = 0.000)
     Significant excess of “FANCY” (p = 0.000)
+    
+![maps]({{ BASE_PATH }}/images/restos_eg.png)
     
     These areas contain neighborhoods that are similar:
     Hudson Yards-Chelsea-Flatiron-Union Square
