@@ -15,7 +15,7 @@ My approach to this problem, to identify the potential customers and their inter
 
 For the "crowdsourced" data I chose the user comments (called "tips") left for restaurants on Foursquare. These comments provide a text corpus to mine to learn the specialities and categories of particular restaurants. They also provide metadata for the restaurant, including its location, a Foursquare-defined category and a price tier (between one and four $-signs).
  
- <img align="right" src="../images/fsq.png" alt="4sq">
+ <img align="right" src="../images/fsq.png" alt="4sq" style="width:64px;height:128px;">
  
 The Foursquare API allows you to search for venues within a specified radius around a latitude, longitude point and will return up to a max of 50 venues for a single call. I specified the venue category to be the category ID corresponding to "Food" and performed a few thousand calls to the API over a grid of latitude, longitude defined by the locations of Census tracts in Manhattan. The number of Census tracts in Manhattan is 288 so I interpolated extra latitude, longitude points between these values to create grid. Because the API only allows 2500 calls per hour, I added in a condition for the code to pause so as not to exceed the API limit. I gathered data for around 10,500 restaurants.
 
