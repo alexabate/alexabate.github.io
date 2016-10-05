@@ -77,10 +77,37 @@ The Baby Boomers are mostly clustered around the east side of the park, and the 
 
 The black outline bars show the baseline distribution of restaurant categories over all of Manhattan (and so are identical in left and right plots). The pink bars show the distribution of the restaurant categories in each type of neighborhood (left Baby Boom, right Millennial). Many things make intuitive sense, e.g. the excess of bars in the Millennial neighborhoods and the corresponding decrement in Baby Boomer neighborhoods. In particular we notice an excess of "fancy" restaurants in Baby Boomer neightborhoods coupled with a decrement of Mexican restaurants: *perhaps an untapped market in these neighborhoods could be an upscale Mexican restaurant?*
 
-## The Tool
+# The Tool
 
-A user types an address located in Manhattan, and a series of diagnostics are returned including an emphasis on what is unusual or an outlier about a neightborhood with significance estimates and a list of other areas containing similar neighborhoods.
+A user types an address located in Manhattan, and a series of diagnostics are returned including an emphasis on what is unusual or an outlier about a neightborhood with significance estimates and a list of other areas containing similar neighborhoods. For example typing 45 W 25th Street returns:
 
-## In summary
+    You are in Hudson Yards-Chelsea-Flatiron-Union Square
+
+    Neighborhood is in top 88% for boomers
+    Neighborhood is in top 3% for millennials
+    Neighborhood is in top 77% for women
+    Neighborhood is in top 22% for men
+    Neighborhood is in top 3% for highly educated
+    Neighborhood is in top 9% for income
+
+    Total number of restaurants in neighborhood = 84
+    
+    Significant excess of “BAR” (p = 0.008)
+    Significant excess of “SANDWICHES” (p = 0.000)
+    Significant excess of “FANCY” (p = 0.000)
+    
+    These areas contain neighborhoods that are similar:
+    Hudson Yards-Chelsea-Flatiron-Union Square
+    Midtown-Midtown South
+    West Village
+    
+    Top restaurant keywords for this tract are:
+    beer
+    bowl
+    sandwich
+    starbucks
+pizza
+
+# In summary
 
 My project provides and overview of the customer demographics in an area. It enables the identification of the excess or decrement of any restaurant category in a neighborhood compared to the more global area. It also provides a list of areas containing neighborhoods with the most similar conditions. All this is in order to provide information for making data driven insights.
