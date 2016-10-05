@@ -112,7 +112,7 @@ A user types an address located in Manhattan, and a series of diagnostics are re
     bowl
     sandwich
     starbucks
-pizza
+    pizza
 
 # In summary
 
