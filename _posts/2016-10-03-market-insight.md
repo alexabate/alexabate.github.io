@@ -7,11 +7,13 @@ tags:
 --- 
 ## Market Insight: Visualise the potential of NYC restaurant markets
 
-I created the Market Insight tool over a period of three weeks during the [_Insight Data Science_](www.insightdatascience.com) program.
+I created the **Market Insight** tool over a period of three weeks during the [_Insight Data Science_](www.insightdatascience.com) program.
 
-The project used [Foursquare](https://foursquare.com/) restaurant comments data and [Census demographics data](http://www.census.gov/data.html) to develop an analytics tool that shows the features of a neighborhood so that a business could decide how/if to enter into the restaurant market there.
+The project used [_Foursquare_](https://foursquare.com/) restaurant comments data and [_Census demographics data_](http://www.census.gov/data.html) to develop an analytics tool that shows the features of a neighborhood so that a business can gain actionable insights in to the restaurant market.
  
-My approach to this problem, to identify the potential customers and their interests in order to enable an estimation of the market size, is to combine crowdsourced and public data sets of all Manhattan neighborhoods.
+My approach to this problem, to identify the potential customers and their interests in order to enable an estimation of the market size, is to combine crowdsourced and public data sets of all Manhattan neighborhoods. 
+
+A link to the presentation slides can be found [_here_](https://www.slideshare.net/secret/FQJ8msWydNiCO0)
  
 # Data collection and cleaning
 
@@ -120,4 +122,4 @@ A user types an address located in Manhattan, and a series of diagnostics are re
 
 My project provides an overview of the customer demographics in an area. It enables the identification of the excess or decrement of any restaurant category in a neighborhood compared to the more global area. It also provides a list of areas containing neighborhoods with the most similar conditions. All this is in order to provide information for making data driven insights.
 
-[slides](https://www.slideshare.net/secret/FQJ8msWydNiCO0)
+
