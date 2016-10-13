@@ -7,7 +7,7 @@ tags:
 --- 
 ## Market Insight: Visualise the potential of NYC restaurant markets
 
-I created the Market Insight tool over a period of three weeks during the [Insight Data Science](www.insightdatascience.com) program.
+I created the Market Insight tool over a period of three weeks during the [_Insight Data Science_](www.insightdatascience.com) program.
 
 The project used [Foursquare](https://foursquare.com/) restaurant comments data and [Census demographics data](http://www.census.gov/data.html) to develop an analytics tool that shows the features of a neighborhood so that a business could decide how/if to enter into the restaurant market there.
  
