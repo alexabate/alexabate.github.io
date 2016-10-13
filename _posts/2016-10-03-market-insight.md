@@ -9,23 +9,23 @@ tags:
 
 I created the **Market Insight** tool over a period of three weeks during the [_Insight Data Science_](www.insightdatascience.com) program.
 
-The project used [_Foursquare_](https://foursquare.com/) restaurant comments data and [_Census demographics data_](http://www.census.gov/data.html) to develop an analytics tool that shows the features of a neighborhood so that a business can gain actionable insights in to the restaurant market.
+The project used [_Foursquare_](https://foursquare.com/) restaurant comments data and [_Census demographics data_](http://www.census.gov/data.html) to develop an analytics tool that shows the features of a neighborhood so that a business can gain actionable insights into the restaurant market.
  
 My approach to this problem, to identify the potential customers and their interests in order to enable an estimation of the market size, is to combine crowdsourced and public data sets of all Manhattan neighborhoods. 
 
-A link to the presentation slides can be found [_here_](https://www.slideshare.net/secret/FQJ8msWydNiCO0)
+A link to the presentation slides can be found [_here_](https://www.slideshare.net/secret/FQJ8msWydNiCO0).
  
 # Data collection and cleaning
 
-For the "crowdsourced" data I chose the user comments (called "tips") left for restaurants on Foursquare. These comments provide a text corpus to mine to learn the specialities and categories of particular restaurants. They also provide metadata for the restaurant, including its location, a Foursquare-defined category and a price tier (between one and four $-signs).
+For the "crowdsourced" data I chose the user comments (called "tips") left for restaurants on Foursquare. These comments provide a text corpus to mine to learn the specialities and "hot topics" associated with particular restaurants. They also provide metadata for the restaurant, including its location, a Foursquare-defined category and a price tier (between one and four $-signs).
  
  <img align="right" src="{{ BASE_PATH }}/images/fsq.png" alt="4sq" height="500">
  
-The Foursquare API allows you to search for venues within a specified radius around a latitude, longitude point and will return up to a maximum of 50 venues for a single call. I specified the venue category to be the category ID corresponding to "Food" and performed a few thousand calls to the API over a grid of latitude, longitude defined by the locations of Census tracts in Manhattan. Since there are only about 280 Census tracts in Manhattan, I interpolated extra latitude, longitude points between these values to create a finer grid. Because the API only allows 2500 calls per hour, I added in a condition for the code to pause so as not to exceed the API limit. I gathered data for around 10,500 restaurants.
+The Foursquare API allows you to search for venues within a specified radius around a latitude, longitude point and will return up to a maximum of 50 venues for a single call. I specified the venue category to be the category ID corresponding to "Food", and performed a few thousand calls to the API over a grid of latitude, longitude defined by the locations of Census tracts in Manhattan. Since there are only about 280 Census tracts in Manhattan, I interpolated extra latitude, longitude points between these values to create a finer grid. Finally because the API only allows 2500 calls per hour, I added a condition so the code would pause to prevent exceeding the API limit. I gathered data for around 10,500 restaurants.
 
 To create the text corpus of restaurant comments I concatenated all the comment strings for each restaurant into a single long string: this became the "document" for a restaurant. Any restaurants with zero comments were discarded.
 
-To draw out the most important features of each restaurant I calculated the term frequency-inverse document frequency (TF-IDF) statistic on the corpus of restaurant comments. I chose TF-IDF because the final statistical weight of each term includes the inverse document frequency. This is important so terms that appear many times in only a few documents are still weighted highly (e.g. a popular but generally uncommon food item that is a speciality in a certain small subset of restaurants). I chose to include uni-grams (single word) and bi-grams (two words together) to include nouns that are made up of one or two words.
+To draw out the most important features of each restaurant I calculated the term frequency-inverse document frequency (TF-IDF) statistic on the corpus of restaurant comments. I chose TF-IDF because the final statistical weight of each term includes the inverse document frequency. This is important so terms that appear many times in only a few documents are still weighted highly (e.g. a popular but generally uncommon food item that is a speciality in only a small subset of restaurants). I chose to include uni-grams (single word) and bi-grams (two words together) to include nouns that are made up of one or two words. I stopped at bi-grams because the complexity of matrix calculations goes as $N^2$, where $N$ would be the number distinct key words in this case. Because it is unlikely there are many tri-grams directly relevant to my use case (searching for mostly food/drink related nouns) including tri-grams would mostly increase noise in the keyword terms while drastically increasing the compute time.
 
 The "terms" in the resulting restaurant - term matrix needed to be cleaned: terms which were numbers or words in cyrillic were removed via regular expression search, and singular/plural pairs of the same word were aggregated.
 
