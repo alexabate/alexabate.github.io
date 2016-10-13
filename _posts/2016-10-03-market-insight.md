@@ -13,7 +13,7 @@ The project used [_Foursquare_](https://foursquare.com/) restaurant comments dat
  
 My approach to this problem, to identify the potential customers and their interests in order to enable an estimation of the market size, is to combine crowdsourced and public data sets of all Manhattan neighborhoods. 
 
-A link to the presentation slides can be found [_here_](https://www.slideshare.net/secret/FQJ8msWydNiCO0).
+A link to the presentation slides can be found [_here_](http://www.slideshare.net/secret/ADOxPCif1zZdq4).
  
 # Data collection and cleaning
 
@@ -54,7 +54,13 @@ I validated the clusters (and the choice of k=20) by studying the frequencies of
 * Coffee Shop (Starbucks): starbucks, barista, line, bathroom, outlet
 * Bubble Tea Shop (Tea and Boba): tea, bubble, bubble tea, milk, green tea
 
-In most cases the most frequent Foursquare category is assigned to be the "label" of that cluster. However, where there is a word in brackets in the list above, this name was assigned to be the label instead. A couple of notes about the labelling: the "pizza" labels were assigned by looking at the price differences between the two clusters: one was clearly skewed low and the other high. The "Starbucks" label was assigned because 99% of all the restaurants in this cluster were Starbucks, while zero of the restaurants in the other coffee category were Starbucks. The two clusters that were labelled "other" were discarded from further analysis.
+How the clusters were labelled:
+
+After studying the distribution of the most frequent Foursquare restaurant categories, the most frequent keywords and the price distribution of restaurants in each cluster, usually the most frequent Foursquare category was assigned to be the "label" of that cluster. A few exceptions are described:
+
+* the "pizza" labels were assigned by looking at the price differences between the two clusters: one was clearly skewed low and the other high. 
+* The "Starbucks" label was assigned because 99% of all the restaurants in this cluster were Starbucks, while zero of the restaurants in the other coffee category were Starbucks. 
+* The two clusters that were labelled "other" were discarded from further analysis.
 
 The plot below shows the first two principal components of the restaurant - term matrix. The colors show the different clusters and this PCA analysis demonstrates that the clustering does pull out the distinct categories, although they are (as would be expected) noisy.
 
