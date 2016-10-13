@@ -56,13 +56,14 @@ I validated the clusters (and the choice of k=20) by studying the frequencies of
 
 How the clusters were labelled:
 
-After studying the distribution of the most frequent Foursquare restaurant categories, the most frequent keywords and the price distribution of restaurants in each cluster, usually the most frequent Foursquare category was assigned to be the "label" of that cluster. A few exceptions are described:
+After studying the distribution of the most frequent Foursquare restaurant categories, the most frequent keywords and the price distribution of restaurants in each cluster, usually the most frequent Foursquare category was assigned to be the "label" of that cluster. A few exceptions are described (and the final label is shown in brackets in the list above):
 
-* the "pizza" labels were assigned by looking at the price differences between the two clusters: one was clearly skewed low and the other high. 
-* The "Starbucks" label was assigned because 99% of all the restaurants in this cluster were Starbucks, while zero of the restaurants in the other coffee category were Starbucks. 
-* The two clusters that were labelled "other" were discarded from further analysis.
+* the "Pizza" labels were assigned by looking at the price differences between the two clusters: one was clearly skewed low and the other high. 
+* The "Starbucks" label was assigned because 99% of all the restaurants in this cluster were Starbucks, while zero of the restaurants in the other coffee category were Starbucks.
+* The "Fancy" label was chosen because the most frequent restaurant types were fairly evenly spread over French, New American, Steakhouse and Seafood (restaurant types that tend to be at a higher price point), and the top keywords were more expensive items also
+* The two clusters that were labelled "other" were discarded from further analysis because these refer to just generic snack food places, take-out and markets.
 
-The plot below shows the first two principal components of the restaurant - term matrix. The colors show the different clusters and this PCA analysis demonstrates that the clustering does pull out the distinct categories, although they are (as would be expected) noisy.
+The plot below shows the first two principal components of the restaurant - term matrix for restaurants in the top 5 largest clusters only, and the colors show the Foursquare defined category. The PCA analysis demonstrates that the clustering does pull out the distinct categories: the pink/blue branch leading up to the top right corner are Asian restaurants (Chinese and Thai), the top right corner is a mixture of the "Fancy" restaurants (French, Steakhouse, New American, Seafood), the bottom center area is Coffee shops, cafe's and Bakeries. The central area is more sparse and contains types such as Deli/Bodega and Sandwich places which tend to end up in the clusters that are discarded. The clustering of restaurants based upon the keywords is noisy, and expectedly so, because restaurants will always have many features that overlap with other types of restaurants.
 
 ![pca]({{ BASE_PATH }}/images/pca.png) 
 
