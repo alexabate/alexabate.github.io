@@ -88,7 +88,7 @@ The Baby Boomers are mostly clustered around the east side of the park, and the 
 
 ![millennial map]({{ BASE_PATH }}/images/restos.png)
 
-The black outline bars show the baseline distribution of restaurant categories over all of Manhattan (and so are identical in left and right plots). The pink bars show the distribution of the restaurant categories in each type of neighborhood (left Baby Boom, right Millennial). Many things make intuitive sense, e.g. the excess of bars in the Millennial neighborhoods and the corresponding decrement in Baby Boomer neighborhoods. In particular we notice an excess of "fancy" restaurants in Baby Boomer neightborhoods coupled with a decrement of Mexican restaurants: *perhaps an untapped market in these neighborhoods could be an upscale Mexican restaurant?*
+The black outline bars show the baseline distribution of restaurant categories over all of Manhattan (and so are identical in left and right plots). The pink bars show the distribution of the restaurant categories in each type of neighborhood (left Baby Boomer, right Millennial). Many things make intuitive sense, e.g. the excess of bars in the Millennial neighborhoods and the corresponding decrement in Baby Boomer neighborhoods. In particular we notice an excess of "fancy" restaurants in Baby Boomer neightborhoods coupled with a decrement of Mexican restaurants: *perhaps an untapped market in these neighborhoods could be an upscale Mexican restaurant?*
 
 # The Tool
 
@@ -127,6 +127,11 @@ A user types an address located in Manhattan, and a series of diagnostics are re
 
 # In summary
 
-My project provides an overview of the customer demographics in an area. It enables the identification of the excess or decrement of any restaurant category in a neighborhood compared to the more global area. It also provides a list of areas containing neighborhoods with the most similar conditions. All this is in order to provide information for making data driven insights.
+My project provides an overview of the customer demographics in an area. It enables the identification of the excess or decrement of any restaurant category in a neighborhood compared to the more global area. It also provides a list of areas containing neighborhoods with the most similar conditions. All this is in order to provide information for making data driven market insights!
+
+# Final thoughts
+
+If I had more time to extend this project I would be keen to use more data that contained a time aspect in order to monitor trends. For example, scraping new restaurant comments over time would enable a display of the evolution of keyword trends. In addition, the Foursquare comments often contain the name of the user who left the comment. From the name a gender and probability of year of birth (i.e. age) could be estimated. After amassing a large enough sample of comments, the keyword trends could also be studied across demographics. Monitoring trends in this way would allow a more definitive estimation of untapped markets: for example identifying trends in up and coming areas and be first to capitalise on them in more mainstream markets.
+
 
 
