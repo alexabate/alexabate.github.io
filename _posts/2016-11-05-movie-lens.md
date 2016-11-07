@@ -5,18 +5,7 @@ tags:
     - python
     - notebook
 ---
-**In [262]:**
 
-{% highlight python %}
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-
-sns.set(rc={'axes.facecolor':'white', 'figure.facecolor':'white'})
-
-%matplotlib inline
-{% endhighlight %}
  
 # The MovieLens data set
 
@@ -26,6 +15,7 @@ University of Minnesota who wanted to gather research data on personalised
 recommendations.
 
 We have the following three tables:
+
 * the ratings users gave to movies
 * data on the users (age, gender, occupation, zip code)
 * data on the movies (title, release data, genre(s))
@@ -38,7 +28,6 @@ from nearly 1000 users.
 This table is the 'meat' required for any recommender approach: the actual
 ratings 
 
-**In [263]:**
 
 {% highlight python %}
 names = ['user_id', 'movie_id', 'rating', 'timestamp']
@@ -101,9 +90,6 @@ user_item_ratings.head()
 </div>
 
 
-
-**In [264]:**
-
 {% highlight python %}
 number_of_unique_users = len(user_item_ratings['user_id'].unique())
 number_of_unique_movies = len(user_item_ratings['movie_id'].unique())
@@ -118,7 +104,6 @@ print "Number of ratings =", number_of_ratings
     Number of ratings = 100000
 
 
-**In [265]:**
 
 {% highlight python %}
 fig = plt.figure(figsize=(10,10))
@@ -137,7 +122,6 @@ print "Mean rating =", mean_rating
 ![png]({{ BASE_PATH }}/images/movie-lens!_5_1.png) 
 
 
-**In [266]:**
 
 {% highlight python %}
 # Number of ratings per movie
@@ -158,11 +142,11 @@ print len(np.where(num_ratings_per_movie<2)[0]), "movies were rated by only 1 us
 ![png]({{ BASE_PATH }}/images/movie-lens!_6_1.png) 
 
 
-**In [267]:**
 
 {% highlight python %}
 # mean ratings from each user
-mean_rating_of_user = user_item_ratings.groupby('user_id').apply(lambda x: x['rating'].mean())
+mean_rating_of_user = user_item_ratings.groupby('user_id').apply(lambda x: 
+                                                                 x['rating'].mean())
 
 fig = plt.figure(figsize=(10,10))
 ax = fig.add_subplot(111)
