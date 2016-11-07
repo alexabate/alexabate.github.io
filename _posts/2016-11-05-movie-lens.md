@@ -7,7 +7,7 @@ tags:
 ---
 
  
-# The MovieLens data set
+## The MovieLens data set
 
 This is a classic data set that is used by people who want to try out
 recommender system approaches. It was set up in 1997 by a group at the
@@ -23,7 +23,7 @@ We have the following three tables:
 In this version of the data set we have 100,000 ratings of nearly 1700 movies
 from nearly 1000 users. 
  
-## User ratings for movies
+# User ratings for movies
 
 This table is the 'meat' required for any recommender approach: the actual
 ratings 
@@ -156,18 +156,11 @@ ax.set_xlabel('mean rating given by each user', fontsize=24)
 
 
 
-
-    <matplotlib.text.Text at 0x7f9ac3b4add0>
-
-
-
  
 ![png]({{ BASE_PATH }}/images/movie-lens!_7_1.png) 
 
  
-## Movie data 
-
-**In [268]:**
+# Movie data 
 
 {% highlight python %}
 names = ['movie_id', 'movie_title', 'release_date', 'video_release_date',
@@ -361,9 +354,6 @@ movies.head()
 </div>
 
 
-
-**In [269]:**
-
 {% highlight python %}
 genres = ['unknown' , 'Action' , 'Adventure' , 'Animation' ,
          'Children' , 'Comedy' , 'Crime' , 'Documentary' , 'Drama' , 'Fantasy' ,
@@ -378,18 +368,12 @@ movies[genres].sum().sort_values().plot(kind='barh', stacked=False, ax=ax)
 
 
 
-
-    <matplotlib.axes._subplots.AxesSubplot at 0x7f9ac3839410>
-
-
-
  
 ![png]({{ BASE_PATH }}/images/movie-lens!_10_1.png) 
 
  
-## Users 
+# Users 
 
-**In [270]:**
 
 {% highlight python %}
 names = ['user_id', 'age', 'gender', 'occupation', 'zip_code']
@@ -459,9 +443,6 @@ users.head()
 </div>
 
 
-
-**In [271]:**
-
 {% highlight python %}
 fig = plt.figure(figsize=(10,8))
 ax = fig.add_subplot(111)
@@ -471,17 +452,9 @@ ax.set_yticklabels(['Male', 'Female'], fontsize=20)
 
 
 
-
-    [<matplotlib.text.Text at 0x7f9ac3731f50>,
-     <matplotlib.text.Text at 0x7f9ac36d2c10>]
-
-
-
  
 ![png]({{ BASE_PATH }}/images/movie-lens!_13_1.png) 
 
-
-**In [272]:**
 
 {% highlight python %}
 grouped_by_gender = users.groupby(["occupation","gender"]).size().unstack(
@@ -500,16 +473,9 @@ ax.set_ylabel('')
 
 
 
-
-    <matplotlib.text.Text at 0x7f9ac35fd290>
-
-
-
  
 ![png]({{ BASE_PATH }}/images/movie-lens!_14_1.png) 
 
-
-**In [273]:**
 
 {% highlight python %}
 def outline_boxes_with_color(bp, col, color):
@@ -540,20 +506,12 @@ fig.suptitle('')
 {% endhighlight %}
 
 
-
-
-    <matplotlib.text.Text at 0x7f9ac33d3cd0>
-
-
-
  
 ![png]({{ BASE_PATH }}/images/movie-lens!_15_1.png) 
 
  
-# User-item matrix
- 
+## User-item matrix
 
-**In [274]:**
 
 {% highlight python %}
 ratings_matrix = np.zeros((number_of_unique_users, number_of_unique_movies))
@@ -567,7 +525,6 @@ for index, row in user_item_ratings.iterrows():
 
 {% endhighlight %}
 
-**In [275]:**
 
 {% highlight python %}
 sparsity = 100.*float(len(ratings_matrix.nonzero()[0]))/ratings_matrix.size
@@ -578,12 +535,11 @@ print 'Sparsity of the user-item matrix ={0:4.1f}%'.format(sparsity)
     Sparsity of the user-item matrix = 6.3%
 
  
-# Step 0: Most basic recommendation
+## Step 0: Most basic recommendation
 
 Predict rating to always be the mean movie rating! This is the baseline we seek
 to improve upon. 
 
-**In [276]:**
 
 {% highlight python %}
 rmse_benchmark = np.sqrt(pow(user_item_ratings['rating']-mean_rating, 2).mean())
@@ -593,15 +549,15 @@ print "Maximum root-mean-square error = {:4.2f}".format(rmse_benchmark)
     Maximum root-mean-square error = 1.13
 
  
-# Step 1: Rating prediction based upon user-user similarity
+## Step 1: Rating prediction based upon user-user similarity
 
 We define "similarity" using the cosine similarity metric. Imagining each user's
 set of ratings as a vector, the cosine similarity of two users is simply the
 cosine of the angle between their two vectors. This is given by the dot product
 of the two vectors divided by their magnitudes:
 
-$ \mbox{similarity}(u_i, u_j) = \frac{\textbf{r}_{u_i} \cdot
-\textbf{r}_{u_j}}{\mid \textbf{r}_{u_j} \mid \mid \textbf{r}_{u_j} \mid}$
+\(( \mbox{similarity}(u_i, u_j) = \frac{\textbf{r}_{u_i} \cdot
+\textbf{r}_{u_j}}{\mid \textbf{r}_{u_j} \mid \mid \textbf{r}_{u_j} \mid} \))
 
 And for ease i'll simply do a 'leave one out' approach: for every user I will
 use the other users' ratings to predict that user's ratings, and then calculate
