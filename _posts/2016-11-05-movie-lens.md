@@ -1059,6 +1059,12 @@ print "Number of predictions made =", num_preds
 print "Root mean square error =", rmse_bias , '\n'
 {% endhighlight %}
 
+    Using top 25 most similar users to predict rating
+    Number of predictions made = 100000
+    Root mean square error = 0.99968273602 
+    
+It improved slightly upon no bias!
+
 ## Summary
  
 Alright! So after trying the following, predict user $$i$$'s rating of movie $$j$$ as being:
@@ -1066,6 +1072,7 @@ Alright! So after trying the following, predict user $$i$$'s rating of movie $$j
 * the **same** rating as the most similar user to user $$i$$ who has rated movie $$j$$ (result=bad)
 * the weighted sum of ratings by **all** other users who have rated movie $$j$$. The weights are given by the other users' similarities to user $$i$$ (result=ok)
 * the weighted sum of ratings by **the top k** most similar users to user $$i$$ who have also rated movie $$j$$ (result=ok)
+* as above, taking account of "user bias" (result=ok)
 * the weighted sum of ratings for **the top k** most similar movies to movie $$j$$ (result=best)
 
 Using the top-10 most similar items with an item-item collaborative filtering approach seems to perform the best!
