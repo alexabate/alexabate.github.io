@@ -9,7 +9,7 @@ tags:
  
 ## The MovieLens data set
 
-This is a classic data set that is used by people who want to try out
+[This is a classic data set](http://grouplens.org/datasets/movielens/100k/) that is used by people who want to try out
 recommender system approaches. It was set up in 1997 by a group at the
 University of Minnesota who wanted to gather research data on personalised
 recommendations.
