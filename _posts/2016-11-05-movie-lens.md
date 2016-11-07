@@ -701,7 +701,7 @@ print "Root mean square error =", rmse_cossim
     Root mean square error = 1.01584998447
 
  
-It improved! Can we do any better by only counting the top $n$ most similar
+It improved! Can we do any better by only counting the top $$n$$ most similar
 users in the weighted sum? 
 
 
@@ -835,7 +835,7 @@ ax.legend(handles, labels, fontsize=20)
 ![png]({{ BASE_PATH }}/images/movie-lens!_29_1.png) 
 
  
-Yes it improves if we use $10<N<300$ top users, with N=25 looking like it gives
+Yes it improves if we use $$10<N<300 $$ top users, with N=25 looking like it gives
 the best improvement.
 
 ## Step 2: item-item similarity
