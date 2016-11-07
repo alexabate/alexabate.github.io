@@ -978,12 +978,12 @@ ax.legend(handles, labels, fontsize=20)
 ![png]({{ BASE_PATH }}/images/movie-lens!_33_1.png) 
 
  
-Alright! So after trying the following:
+Alright! So after trying the following, predict user $$i$$'s rating of movie $$j$$ as being:
 
-* Predict user $$i$$'s rating of movie $$j$$ as being the **same** rating as the most similar user to user $$i$$ who has rated movie $$j$$ (result=bad)
-* Predict user $$i$$'s rating of movie $$j$$ as being the weighted sum of ratings by **all** other users who have rated movie $$j$$. The weights are given by the other users' similarities to user $$i$$ (result=ok)
-* Predict user $$i$$'s rating of movie $$j$$ as being the weighted sum of ratings by **the top k** most similar users to user $$i$$ who have also rated movie $$j$$ (result=ok)
-* Predict user $$i$$'s rating of movie $$j$$ as being the weighted sum of ratings for **the top k** most similar movies to movie $$j$$ (result=best)
+* the **same** rating as the most similar user to user $$i$$ who has rated movie $$j$$ (result=bad)
+* the weighted sum of ratings by **all** other users who have rated movie $$j$$. The weights are given by the other users' similarities to user $$i$$ (result=ok)
+* the weighted sum of ratings by **the top k** most similar users to user $$i$$ who have also rated movie $$j$$ (result=ok)
+* the weighted sum of ratings for **the top k** most similar movies to movie $$j$$ (result=best)
 
 Using the top-10 most similar items with an item-item collaborative filtering approach seems to perform the best!
 
