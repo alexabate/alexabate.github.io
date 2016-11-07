@@ -841,7 +841,7 @@ the best improvement.
 
 ## Step 2: item-item similarity
 
-We can do exactly the same process for items instead of users. Treat an item as
+We can do exactly the same process for items instead of users; this time treating an item as
 a vector of ratings and calculate a similarity between two items in the same
 manner using cosine similarity. 
 
@@ -874,7 +874,7 @@ def rmse_topN_items(topN):
 
     cnt_no_sims = 0
 
-    # for each tiem
+    # for each item
     for item_i, u in enumerate(ratings_matrix.T):
 
         # users item HAS ratings by
@@ -980,18 +980,12 @@ ax.legend(handles, labels, fontsize=20)
  
 Alright! So after trying the following:
 
-* Predict user $$i$$'s rating of movie $$j$$ as being the same rating as the most similar user to user $$i$$ who has rated movie $$j$$ (result=bad)
-* Predict user $$i$$'s rating of movie $$j$$ as being the weighted sum of ratings by other users who have rated movie $$j$$. The weights are given by the other users' similarities to user $$i$$ (result=ok)
-* Predict user $$i$$'s rating of movie $$j$$ as being the weighted sum of ratings by *the top k* users who have rated movie $$j$$. The weights are given by the other users' similarities to user $$i$$ (result=ok)
+* Predict user $$i$$'s rating of movie $$j$$ as being the **same** rating as the most similar user to user $$i$$ who has rated movie $$j$$ (result=bad)
+* Predict user $$i$$'s rating of movie $$j$$ as being the weighted sum of ratings by **all** other users who have rated movie $$j$$. The weights are given by the other users' similarities to user $$i$$ (result=ok)
+* Predict user $$i$$'s rating of movie $$j$$ as being the weighted sum of ratings by **the top k** most similar users to user $$i$$ who have also rated movie $$j$$ (result=ok)
+* Predict user $$i$$'s rating of movie $$j$$ as being the weighted sum of ratings for **the top k** most similar movies to movie $$j$$ (result=best)
 
+Using the top-10 most similar items with an item-item collaborative filtering approach seems to perform the best!
 
-using the top-10 most similar items with an item-item collaborative
-filtering approach seems to perform the best!
+To be continued .... to play with one or more of: user bias, matrix factorisation, additional features! 
 
-To be continued .... to play with one or more of: user bias, matrix
-factorisation, additional features! 
-
-
-{% highlight python %}
-
-{% endhighlight %}
