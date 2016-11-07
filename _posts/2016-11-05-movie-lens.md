@@ -557,7 +557,7 @@ cosine of the angle between their two vectors. This is given by the dot product
 of the two vectors divided by their magnitudes:
 
 $$ \mbox{similarity}(u_i, u_j) = \frac{\textbf{r}_{u_i} \cdot
-\textbf{r}_{u_j}}{\mid \textbf{r}_{u_j} \mid \mid \textbf{r}_{u_j} \mid} $$
+\textbf{r}_{u_j}}{\mid \textbf{r}_{u_i} \mid \mid \textbf{r}_{u_j} \mid} $$
 
 And for ease i'll simply do a 'leave one out' approach: for every user I will
 use the other users' ratings to predict that user's ratings, and then calculate
@@ -636,8 +636,9 @@ print "Root mean square error =", rmse_cossim
     Number of predictions made = 99859
     Root mean square error = 1.30217928718
 
- 
-Erm, it got worse! Let's try something more sensible
+
+Erm, it got worse! Let's try something more sensible. (The failed predictions occur because that movie was only rated by a single user.)
+
 
 # Predict a rating as the weighted mean of all ratings
 
@@ -835,7 +836,7 @@ ax.legend(handles, labels, fontsize=20)
 ![png]({{ BASE_PATH }}/images/movie-lens!_29_1.png) 
 
  
-Yes it improves if we use $$10<N<300 $$ top users, with N=25 looking like it gives
+Yes it improves if we use $$10 < N <300 $$ top users, with $$N=25$$ looking like it gives
 the best improvement.
 
 ## Step 2: item-item similarity
@@ -977,7 +978,14 @@ ax.legend(handles, labels, fontsize=20)
 ![png]({{ BASE_PATH }}/images/movie-lens!_33_1.png) 
 
  
-Alright! so using the top-10 most similar items with an item-item collaborative
+Alright! So after trying the following:
+
+* Predict user $$i$$'s rating of movie $$j$$ as being the same rating as the most similar user to user $$i$$ who has rated movie $$j$$ (result=bad)
+* Predict user $$i$$'s rating of movie $$j$$ as being the weighted sum of ratings by other users who have rated movie $$j$$. The weights are given by the other users' similarities to user $$i$$ (result=ok)
+* Predict user $$i$$'s rating of movie $$j$$ as being the weighted sum of ratings by *the top k* users who have rated movie $$j$$. The weights are given by the other users' similarities to user $$i$$ (result=ok)
+
+
+using the top-10 most similar items with an item-item collaborative
 filtering approach seems to perform the best!
 
 To be continued .... to play with one or more of: user bias, matrix
