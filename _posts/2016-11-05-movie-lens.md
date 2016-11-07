@@ -556,8 +556,8 @@ set of ratings as a vector, the cosine similarity of two users is simply the
 cosine of the angle between their two vectors. This is given by the dot product
 of the two vectors divided by their magnitudes:
 
-\(( \mbox{similarity}(u_i, u_j) = \frac{\textbf{r}_{u_i} \cdot
-\textbf{r}_{u_j}}{\mid \textbf{r}_{u_j} \mid \mid \textbf{r}_{u_j} \mid} \))
+$$ \mbox{similarity}(u_i, u_j) = \frac{\textbf{r}_{u_i} \cdot
+\textbf{r}_{u_j}}{\mid \textbf{r}_{u_j} \mid \mid \textbf{r}_{u_j} \mid} $$
 
 And for ease i'll simply do a 'leave one out' approach: for every user I will
 use the other users' ratings to predict that user's ratings, and then calculate
@@ -567,7 +567,6 @@ The code below is also slow because it's not taking full advantage of matrix
 operations, but **THIS CODE IS FOR ILLUSTRATION ONLY!**
  
 
-**In [277]:**
 
 {% highlight python %}
 from sklearn.metrics.pairwise import cosine_similarity
@@ -584,9 +583,9 @@ user_user_similarity.shape
 
 
  
-## Predict a rating as exactly the rating given by the most similar user 
+# Predict a rating as exactly the rating given by the most similar user 
 
-**In [278]:**
+
 
 {% highlight python %}
 
@@ -640,11 +639,10 @@ print "Root mean square error =", rmse_cossim
  
 Erm, it got worse! Let's try something more sensible
 
-## Predict a rating as the weighted mean of all ratings
+# Predict a rating as the weighted mean of all ratings
 
 Weighted by the user similarities ... 
 
-**In [279]:**
 
 {% highlight python %}
 sqdiffs = 0
@@ -706,7 +704,6 @@ print "Root mean square error =", rmse_cossim
 It improved! Can we do any better by only counting the top $n$ most similar
 users in the weighted sum? 
 
-**In [280]:**
 
 {% highlight python %}
 
@@ -812,7 +809,6 @@ for topN in topN_trials:
     
 
 
-**In [281]:**
 
 {% highlight python %}
 fig = plt.figure(figsize=(10,10))
@@ -833,8 +829,6 @@ ax.legend(handles, labels, fontsize=20)
 
 
 
-    <matplotlib.legend.Legend at 0x7f9ac2f90310>
-
 
 
  
@@ -844,13 +838,12 @@ ax.legend(handles, labels, fontsize=20)
 Yes it improves if we use $10<N<300$ top users, with N=25 looking like it gives
 the best improvement.
 
-# Step 2: item-item similarity
+## Step 2: item-item similarity
 
 We can do exactly the same process for items instead of users. Treat an item as
 a vector of ratings and calculate a similarity between two items in the same
 manner using cosine similarity. 
 
-**In [282]:**
 
 {% highlight python %}
 # Calculate the similarity score between ITEMS: note the transpose
@@ -864,8 +857,6 @@ item_item_similarity.shape
     (1682, 1682)
 
 
-
-**In [283]:**
 
 {% highlight python %}
 def rmse_topN_items(topN):
@@ -965,9 +956,6 @@ for topN in topN_trials:
     Root mean square error = 1.01019290087 
     
 
-
-**In [284]:**
-
 {% highlight python %}
 fig = plt.figure(figsize=(10,10))
 ax = fig.add_subplot(111)
@@ -985,12 +973,6 @@ ax.legend(handles, labels, fontsize=20)
 {% endhighlight %}
 
 
-
-
-    <matplotlib.legend.Legend at 0x7f9ac5588790>
-
-
-
  
 ![png]({{ BASE_PATH }}/images/movie-lens!_33_1.png) 
 
@@ -1001,7 +983,6 @@ filtering approach seems to perform the best!
 To be continued .... to play with one or more of: user bias, matrix
 factorisation, additional features! 
 
-**In [None]:**
 
 {% highlight python %}
 
