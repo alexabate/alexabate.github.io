@@ -644,6 +644,9 @@ Erm, it got worse! Let's try something more sensible. (The failed predictions oc
 
 Weighted by the user similarities ... 
 
+$$ \hat{r}_{u, i} = \frac{ \sum_{u_j} \mbox{similarity}(u_u,
+u_j)r_{u_j}}{\sum_{u_j} \mbox{similarity}(u_u, u_j)}$$
+
 
 {% highlight python %}
 sqdiffs = 0
@@ -977,6 +980,86 @@ ax.legend(handles, labels, fontsize=20)
  
 ![png]({{ BASE_PATH }}/images/movie-lens!_33_1.png) 
 
+## Step 3: User bias!
+
+Not all users rate movies in the same way, so it would be more useful if the
+collaborative filtering looked at the relative difference between movie ratings
+rather than the absolute values. E.g. look at the large scatter in the
+distribution of the mean rating given by each user; some of this is coming from
+noise (some users will have only rated 10 movies), but some is also coming from
+the fact that some users will tend to consistently rate things higher than other
+users. To account fo this we simply re-define the predicted rating
+$$\hat{r_{u,i}}$$ for user $$u$$ and item $$i$$ as:
+
+
+$$ \hat{r}_{u, i} = \bar{r}_{u} + \frac{ \sum_{u_j} \mbox{similarity}(u_u,
+u_j)(r_{u_j}-\bar{r}_{u})}{\sum_{u_j} \mbox{similarity}(u_u, u_j)}$$
+ 
+
+{% highlight python %}
+topN = 25 # best value from before
+
+sqdiffs = 0
+num_preds = 0
+
+# to protect against divide by zero issues
+eps = 1e-6
+
+cnt_no_sims = 0
+
+# for each user
+for user_i, u in enumerate(ratings_matrix):
+
+    # movies user HAS rated
+    i_rated = np.where(u>0)[0]
+
+    # for each rated movie: 
+    for imovie in i_rated:
+
+        # all users that have rated imovie (includes user of interest)
+        i_has_rated = np.where(ratings_matrix[:, imovie]>0)[0]
+
+        # remove the current user 
+        iremove = np.argmin(abs(i_has_rated - user_i)) 
+        i_others_have_rated = np.delete(i_has_rated, iremove)
+
+
+        # rating is weighted sum of all ratings, weights are cosine sims
+        ratings = ratings_matrix[i_others_have_rated, imovie]
+        sims = user_user_similarity[user_i, i_others_have_rated]
+
+        # only want top n sims
+        most_sim_users = sims[np.argsort(sims*-1)][:topN]
+        most_sim_ratings = ratings[np.argsort(sims*-1)][:topN]
+
+#         if user_i == 0:
+#             break
+
+        norm = np.sum(most_sim_users)
+        if norm==0:
+            cnt_no_sims += 1
+            norm = eps
+
+        predicted_rating = mean_rating + np.sum((most_sim_ratings-mean_rating)*most_sim_users)/norm
+
+
+        # prediction error
+        actual_rating = ratings_matrix[user_i, imovie]
+
+        sqdiffs += pow(predicted_rating-actual_rating, 2.)
+        num_preds += 1
+
+#     if user_i == 0:
+#         break
+
+rmse_bias = np.sqrt(sqdiffs/num_preds)
+
+print "Using top", topN , "most similar users to predict rating"
+print "Number of predictions made =", num_preds
+print "Root mean square error =", rmse_bias , '\n'
+{% endhighlight %}
+
+## Summary
  
 Alright! So after trying the following, predict user $$i$$'s rating of movie $$j$$ as being:
 
@@ -987,5 +1070,5 @@ Alright! So after trying the following, predict user $$i$$'s rating of movie $$j
 
 Using the top-10 most similar items with an item-item collaborative filtering approach seems to perform the best!
 
-To be continued .... to play with one or more of: user bias, matrix factorisation, additional features! 
+To be continued .... to play with one or more of: matrix factorisation, additional features! 
 
