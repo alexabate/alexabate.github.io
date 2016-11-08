@@ -381,7 +381,7 @@ predicted number often looks like it might share many high intensity pixels with
 the true number.
 
 The model didn't account explicitly for correlations between pixel intensities,
-e.g. if pixel $j$ is high intensity it's very likely pixel $k$ will be too. I
+e.g. if pixel $$j$$ is high intensity it's very likely pixel $$k$$ will be too. I
 would imagine adding this kind of non-linearity to the model would easily bring
 the accuracy up to 97%+. 
 
