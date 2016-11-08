@@ -36,8 +36,6 @@ Setting up TensorFlow to do a computation requires two stages:
 
 For example, if we wanted to multiply two matrices: 
 
-**In [103]:**
-
 {% highlight python %}
 ### THE SET UP
 
@@ -79,7 +77,7 @@ interested in how the API works.
 ## Stochastic Gradient Descent
 
 I want a refresher on stochastic gradient descent, and since I'm also keen to
-learn how to use TensorFlow, so I'm going to follow the tutorial given [here](ht
+learn how to use TensorFlow, so I'm going to follow the tutorial given [*here*](ht
 tps://www.tensorflow.org/versions/r0.7/tutorials/mnist/beginners/index.html).
 
 In usual gradient descent (see this [previous
@@ -96,11 +94,10 @@ streaming input data.
 # The implementation
  
  
-First step is to download the [MNIST data](http://yann.lecun.com/exdb/mnist/), a
+First step is to download the [*MNIST data*](http://yann.lecun.com/exdb/mnist/), a
 database of images of handwritten digits, tagged with lables indicating the
 digit they represent. 
 
-**In [104]:**
 
 {% highlight python %}
 import tensorflow as tf
@@ -119,7 +116,6 @@ mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
  
 A quick look at what we have: 
 
-**In [105]:**
 
 {% highlight python %}
 print type(mnist)
@@ -137,10 +133,11 @@ for member in dir(mnist):
     validation
 
 
-**In [106]:**
 
 {% highlight python %}
-for mem1, mem2, mem3 in zip(dir(mnist.train), dir(mnist.validation), dir(mnist.test)):
+for mem1, mem2, mem3 in zip(dir(mnist.train), 
+                            dir(mnist.validation), 
+                            dir(mnist.test)):
     if mem1[0] != '_':
         print mem1, mem2, mem3
 {% endhighlight %}
@@ -152,8 +149,6 @@ for mem1, mem2, mem3 in zip(dir(mnist.train), dir(mnist.validation), dir(mnist.t
     num_examples num_examples num_examples
 
 
-**In [107]:**
-
 {% highlight python %}
 print "Number of training examples", mnist.train.num_examples
 print "Number of validation examples", mnist.validation.num_examples
@@ -164,8 +159,6 @@ print "Number of testing examples", mnist.test.num_examples
     Number of validation examples 5000
     Number of testing examples 10000
 
-
-**In [108]:**
 
 {% highlight python %}
 print mnist.train.images.shape, mnist.train.labels.shape
@@ -179,7 +172,7 @@ print mnist.test.images.shape, mnist.test.labels.shape
     (10000, 784) (10000, 10)
 
  
-A training, validation and test set containing the images and labels. The images
+We have a training, validation and test set containing the images and labels. The images
 are flattened vectors of the 28x28 pixels, into 784 elements, and are stored as
 numpy arrays. The labels are "one-hot" vectors, the nth digit is represented as
 a vector which is 1 in the nth element, and zero everywhere else, also stored as
@@ -187,8 +180,6 @@ numpy arrays.
 
 Let's peek at the actual data
  
-
-**In [109]:**
 
 {% highlight python %}
 import matplotlib.pyplot as plt
@@ -222,12 +213,12 @@ actual true class of the written digit. I.e. if the true label of the written
 digit is "3" then we want the weights corresponding to the class "3" to produce
 the largest weighted sum for that image.
 
-The "evidence" for class $i$ is:
+The "evidence" for class $$i$$ is:
 
 $$ \mbox{evidence}_i = \Sigma_j W_{ij} x_j + b_i $$
 
-where the sum is over all the pixels $j$ of the image $x$. $W_{ij}$ are the
-weights for class $i$ in each pixel $j$. $b_i$ is a bias that deals with class
+where the sum is over all the pixels $$j$$ of the image $$x$$. $$W_{ij}$$ are the
+weights for class $$i$$ in each pixel $$j$$. $$b_i$$ is a bias that deals with class
 inbalances (e.g. maybe there are an overwhelming number of "3"'s in the data set
 compared to anything else so the "evidence" should favor "3" before any input
 data is even seen).
@@ -240,20 +231,20 @@ values):
 $$ \mbox{prob}_i = \frac{\exp{(\mbox{evidence}_i)}}{\Sigma_{j=1}^{k}
 \exp{\mbox{evidence}_j}} $$
 
-where $k$ is the total number of classes.
+where $$k$$ is the total number of classes.
 
 Now implement in TensorFlow! Note all code below is taken from the tutorial, but
 the explainations are my own! 
-
-**In [110]:**
 
 {% highlight python %}
 ### THE SET UP
 
 # A placeholder for the data (inputs and outputs)
-# This represents any number (indicated by None) of the 784 pixel flattened images
+# This represents any number (indicated by None) 
+# of the 784 pixel flattened images
 x = tf.placeholder(tf.float32, [None, 784])
-# This represents any number (indicated by None) of the 10 class "one-hot" vector of labels
+# This represents any number (indicated by None) 
+# of the 10 class "one-hot" vector of labels
 y_ = tf.placeholder(tf.float32, [None, 10])
 
 
@@ -303,8 +294,6 @@ samples to iteratively train the model with in each step.
 
 # Evaluation with TensorFlow 
 
-**In [111]:**
-
 {% highlight python %}
 # tf.argmax gives you the index of the highest entry in a tensor along some axis
 # therefore checking if these indices are equal will return a boolean array
@@ -343,8 +332,6 @@ We get it returned from the graph node itself, "feeding" in the data we want
 used in the operation. See the example below that plots some of the
 classification failures.
  
-
-**In [112]:**
 
 {% highlight python %}
 correct_vals = sess.run(correct_prediction, 
@@ -397,8 +384,6 @@ The model didn't account explicitly for correlations between pixel intensities,
 e.g. if pixel $j$ is high intensity it's very likely pixel $k$ will be too. I
 would imagine adding this kind of non-linearity to the model would easily bring
 the accuracy up to 97%+. 
-
-**In [None]:**
 
 {% highlight python %}
 
