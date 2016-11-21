@@ -5,21 +5,9 @@ tags:
     - python
     - notebook
 ---
-**In [1]:**
 
-{% highlight python %}
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
 
-from sklearn.cross_validation import train_test_split
-import tensorflow as tf
 
-sns.set(rc={'axes.facecolor':'white', 'figure.facecolor':'white'})
-
-%matplotlib inline
-{% endhighlight %}
  
 # Matrix factorisation with TensorFlow
 
@@ -39,12 +27,12 @@ $k$ variables). In this example there are only two variables ($k=2$) for each
 user and movie. The user matrix has $n_{user}$ rows and $k+2$ columns, the movie
 matrix has $k+2$ rows and $n_{movies}$ columns.
 
-[[images/MF.png]]
+![png]({{ BASE_PATH }}/images/MF.png) 
 
 The equation for the rating of user 0 of film 0 is shown: this demonstrates how
 the variables of the user and the movie interact to predict this rating.
-$u_{00}$ and $u_{01}$ are two variables for that user, and $f_{00}$ and
-$f_{01}$.
+$$u_{00}$$ and $$u_{01}$$ are two variables for that user, and $$f_{00}$$ and
+$$f_{01}$$.
 
 It's possible the two user variables might represent the user's age and location
 (e.g. a large number for very urban location, small for rural), and the movie
@@ -64,15 +52,11 @@ equation).
 
 A quick reminder of the data set is shown below 
 
-**In [2]:**
-
 {% highlight python %}
 names = ['user_id', 'movie_id', 'rating', 'timestamp']
 user_item_ratings = pd.read_csv('u.data', sep='\t', names=names)
 user_item_ratings.head()
 {% endhighlight %}
-
-
 
 
 <div>
@@ -127,9 +111,6 @@ user_item_ratings.head()
 </div>
 
 
-
-**In [3]:**
-
 {% highlight python %}
 # Summary numbers
 
@@ -145,7 +126,6 @@ mean_rating_per_movie = user_item_ratings.groupby('movie_id').apply(lambda x:
                                                                   x['rating'].mean())
 {% endhighlight %}
 
-**In [4]:**
 
 {% highlight python %}
 fig = plt.figure(figsize=(10,10))
@@ -157,12 +137,6 @@ handles, labels = ax.get_legend_handles_labels()
 ax.legend(handles, labels, fontsize=20, loc='upper left')
 
 {% endhighlight %}
-
-
-
-
-    <matplotlib.legend.Legend at 0x7efe65313450>
-
 
 
  
@@ -182,8 +156,6 @@ The most important arguments are (beside the actual `training_set` data):
 * lam: the amount of regularisation (0=no regularisation)
 * lr: the learning rate of the gradient descent
  
-
-**In [5]:**
 
 {% highlight python %}
 def matrix_factorisation(training_set, d=2, lam=0, lr=0.01, mode='factors',
@@ -374,7 +346,6 @@ In practice not only would you use a subset to train with but you would also set
 asside a cross-validation set to learn the optimum number of hidden variables to
 learn and the optimum regularisation to use. 
 
-**In [6]:**
 
 {% highlight python %}
 training_set = user_item_ratings
@@ -386,7 +357,6 @@ To begin we see what kind of precision we get when we ignore the user and item
 biases. Here we set there to be 100 hidden variables to learn (100 user ones +
 100 movie ones) and set the learning rate to 10 (for fast convergence). 
 
-**In [7]:**
 
 {% highlight python %}
 results = matrix_factorisation(training_set, d=100, lr=10.)
@@ -414,7 +384,6 @@ print "Final RMSE =", end_rmse_no_bias
     Final RMSE = 1.02912
 
 
-**In [8]:**
 
 {% highlight python %}
 fig = plt.figure(figsize=(10,10))
@@ -427,15 +396,9 @@ ax.set_ylabel('cost function', fontsize=24)
 
 
 
-    <matplotlib.text.Text at 0x7efe1fa7f650>
-
-
-
  
 ![png]({{ BASE_PATH }}/images/matrix-factorisation_11_1.png) 
 
-
-**In [9]:**
 
 {% highlight python %}
 bins = [0.5, 1.5, 2.5, 3.5, 4.5, 5.5]
@@ -450,11 +413,6 @@ handles, labels = ax.get_legend_handles_labels()
 ax.legend(handles, labels, loc='upper left', fontsize=20)
 ax.set_xlabel('rating', fontsize=20)
 {% endhighlight %}
-
-
-
-
-    <matplotlib.text.Text at 0x7efe1fad3ad0>
 
 
 
@@ -473,7 +431,6 @@ single column of user bias can predict the ratings.
 
 Note that now `mode` is set to be `user_bias` 
 
-**In [11]:**
 
 {% highlight python %}
 results = matrix_factorisation(training_set, d=100, lr=10., mode='user_bias')
@@ -501,8 +458,6 @@ print "Final RMSE =", end_rmse_user_bias
     Final RMSE = 1.03106
 
 
-**In [12]:**
-
 {% highlight python %}
 bins = [0.5, 1.5, 2.5, 3.5, 4.5, 5.5]
 
@@ -516,13 +471,6 @@ handles, labels = ax.get_legend_handles_labels()
 ax.legend(handles, labels, loc='upper left', fontsize=20)
 ax.set_xlabel('rating', fontsize=20)
 {% endhighlight %}
-
-
-
-
-    <matplotlib.text.Text at 0x7efe1fa69810>
-
-
 
  
 ![png]({{ BASE_PATH }}/images/matrix-factorisation_15_1.png) 
@@ -538,7 +486,6 @@ Repeating the same thing, but now for the movie bias.
 
 Note that now `mode` is set to be `movie_bias` 
 
-**In [13]:**
 
 {% highlight python %}
 results = matrix_factorisation(training_set, d=100, lr=10., mode='movie_bias')
@@ -566,8 +513,6 @@ print "Final RMSE =", end_rmse_movie_bias
     Final RMSE = 1.00736
 
 
-**In [14]:**
-
 {% highlight python %}
 bins = [0.5, 1.5, 2.5, 3.5, 4.5, 5.5]
 
@@ -583,12 +528,6 @@ ax.set_xlabel('rating', fontsize=20)
 {% endhighlight %}
 
 
-
-
-    <matplotlib.text.Text at 0x7efe1472c390>
-
-
-
  
 ![png]({{ BASE_PATH }}/images/matrix-factorisation_18_1.png) 
 
@@ -600,7 +539,6 @@ So far the performance is best when just including the movie bias!
 Note that now `mode` is set to be  a tuple of the learned user bias matrix and
 the learned movie bias matrix. 
 
-**In [15]:**
 
 {% highlight python %}
 results = matrix_factorisation(training_set, d=100, lr=10., 
@@ -629,8 +567,6 @@ print "Final RMSE =", end_rmse_full
     Final RMSE = 0.921525
 
 
-**In [16]:**
-
 {% highlight python %}
 bins = [0.5, 1.5, 2.5, 3.5, 4.5, 5.5]
 
@@ -645,18 +581,10 @@ ax.legend(handles, labels, loc='upper left', fontsize=20)
 ax.set_xlabel('rating', fontsize=20)
 {% endhighlight %}
 
-
-
-
-    <matplotlib.text.Text at 0x7efe1467a690>
-
-
-
  
 ![png]({{ BASE_PATH }}/images/matrix-factorisation_21_1.png) 
 
 
-**In [22]:**
 
 {% highlight python %}
 drating = abs(np.round(training_set['rating'] - 
@@ -674,12 +602,6 @@ ax.set_xlim([0,5])
 {% endhighlight %}
 
 
-
-
-    (0, 5)
-
-
-
  
 ![png]({{ BASE_PATH }}/images/matrix-factorisation_22_1.png) 
 
@@ -687,336 +609,4 @@ ax.set_xlim([0,5])
 43% of predictions were correct, and 47% were only 1 rating off, so 10% of
 predictions were 2 or more ratings off.
 
-# Split into train and test sets 
 
-**In [43]:**
-
-{% highlight python %}
-def get_training_set(ratings, nTest=10):
-    """Create training set by removing nTest ratings by each user.
-       Do not remove ratings for movies only rated by one user.
-    
-    """
-    # id's of all movies that were only rated once
-    num_ratings_per_movie = ratings.groupby('movie_id').size()
-    id_one_rating = num_ratings_per_movie[num_ratings_per_movie<2].index.values
-    
-    # new dataframe, copy of original
-    train = ratings.copy()
-    
-    # ratings removed
-    ratings_removed = {}
-    
-    # set to zero nTest ratings per user randomly
-    ii = 0
-    for igroup, group in ratings.groupby('user_id'):
-        
-        # initialise list hashed to user_id
-        ratings_removed[igroup] = []
-         
-        # keep sampling until doesn't include movies with only 1 rating
-        y = id_one_rating
-        cnt_stuck = 0
-        while len(np.intersect1d(y, id_one_rating))>0:
-
-            y = group[group['rating']>0].sample(n=nTest).index.values
-#             if cnt_stuck>0:
-#                 print cnt_stuck
-            cnt_stuck += 1
-                
-        for index in y:
-            train['rating'].iloc[index] = 0
-            ratings_removed[igroup].append(index)
-
-    return train, ratings_removed
-
-{% endhighlight %}
-
-**In [57]:**
-
-{% highlight python %}
-# get training set
-training_set, ratings_removed = get_training_set(user_item_ratings, nTest=10)
-
-# user bias
-print "Learning user bias:"
-ub = matrix_factorisation(training_set, lr=10., lam=2., mode='user_bias')
-user_bias = ub[0]
-print ub[2]
-print ""
-
-# learn movie bias
-print "Learning movie bias:"
-mb = matrix_factorisation(training_set, lr=10., lam=2., mode='movie_bias')
-movie_bias = mb[1]
-print mb[2]
-print ""
-
-# final results
-print "Learning hidden variables:"
-results = matrix_factorisation(training_set, d=500, lr=10., lam=2.,
-                               mode=(user_bias, movie_bias))
-
-end_rmse_full = results[2]
-ratings_predictions_full = results[3] 
-mean_rating_overall = results[4]
-costs = results[5]
-{% endhighlight %}
-
-    Learning user bias:
-    Iteration 1 current cost = 1.10813 Delta-cost = 1.10812520981
-    Iteration 101 current cost = 1.01226 Delta-cost = 0.000243068
-    Iteration 201 current cost = 0.996457 Delta-cost = 0.000105739
-    Iteration 301 current cost = 0.988929 Delta-cost = 5.4121e-05
-    Iteration 401 current cost = 0.984858 Delta-cost = 3.08752e-05
-    Iteration 501 current cost = 0.982553 Delta-cost = 1.80602e-05
-    Iteration 601 current cost = 0.981218 Delta-cost = 1.04308e-05
-    Iteration 701 current cost = 0.980432 Delta-cost = 5.78165e-06
-    Iteration 801 current cost = 0.979963 Delta-cost = 3.51667e-06
-    Iteration 901 current cost = 0.979682 Delta-cost = 2.44379e-06
-    Converged at iteration 934
-    0.979618 0.979617
-    1.39729
-    
-    Learning movie bias:
-    Iteration 1 current cost = 1.1082 Delta-cost = 1.10819911957
-    Iteration 101 current cost = 1.02063 Delta-cost = 0.00025034
-    Iteration 201 current cost = 1.00566 Delta-cost = 9.08375e-05
-    Iteration 301 current cost = 0.9992 Delta-cost = 4.63724e-05
-    Iteration 401 current cost = 0.995652 Delta-cost = 2.83122e-05
-    Iteration 501 current cost = 0.993442 Delta-cost = 1.77622e-05
-    Iteration 601 current cost = 0.991951 Delta-cost = 1.20997e-05
-    Iteration 701 current cost = 0.990885 Delta-cost = 9.0003e-06
-    Iteration 801 current cost = 0.990091 Delta-cost = 6.73532e-06
-    Iteration 901 current cost = 0.989479 Delta-cost = 5.48363e-06
-    1.40404
-    
-    Learning hidden variables:
-    Iteration 1 current cost = 13.7164 Delta-cost = 13.7164382935
-    Iteration 101 current cost = 1.09772 Delta-cost = 0.00174391
-    Iteration 201 current cost = 1.01482 Delta-cost = 0.000400186
-    Iteration 301 current cost = 0.988528 Delta-cost = 0.00017643
-    Iteration 401 current cost = 0.9753 Delta-cost = 0.000101566
-    Iteration 501 current cost = 0.967043 Delta-cost = 6.87838e-05
-    Iteration 601 current cost = 0.961177 Delta-cost = 5.02467e-05
-    Iteration 701 current cost = 0.95663 Delta-cost = 4.04119e-05
-    Iteration 801 current cost = 0.952889 Delta-cost = 3.46899e-05
-    Iteration 901 current cost = 0.949679 Delta-cost = 2.94447e-05
-
-
-**In [58]:**
-
-{% highlight python %}
-end_rmse_full, mean_rating_overall
-{% endhighlight %}
-
-
-
-
-    (1.3261391, 3.19085)
-
-
-
-**In [39]:**
-
-{% highlight python %}
-fig = plt.figure(figsize=(10,10))
-ax = fig.add_subplot(111)
-ax.plot(costs)
-ax.set_xlabel('iteration', fontsize=24)
-ax.set_ylabel('cost function', fontsize=24)
-{% endhighlight %}
-
-
-
-
-    <matplotlib.text.Text at 0x7efe0f5fc250>
-
-
-
- 
-![png]({{ BASE_PATH }}/images/matrix-factorisation_27_1.png) 
-
-
-**In [50]:**
-
-{% highlight python %}
-bins = [0.5, 1.5, 2.5, 3.5, 4.5, 5.5]
-
-fig = plt.figure(figsize=(10,10))
-ax = fig.add_subplot(111)
-ax.hist(training_set['rating'].values, alpha=0.5, bins=bins, 
-        label='training')
-ax.hist(user_item_ratings['rating'].values, alpha=0.5, bins=bins, 
-        label='all')
-handles, labels = ax.get_legend_handles_labels()
-ax.legend(handles, labels, loc='upper left', fontsize=20)
-ax.set_xlabel('rating', fontsize=20)
-{% endhighlight %}
-
-
-
-
-    <matplotlib.text.Text at 0x7efe0e9fcf10>
-
-
-
- 
-![png]({{ BASE_PATH }}/images/matrix-factorisation_28_1.png) 
-
-
-**In [53]:**
-
-{% highlight python %}
-training_set.head()
-{% endhighlight %}
-
-
-
-
-<div>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>user_id</th>
-      <th>movie_id</th>
-      <th>rating</th>
-      <th>timestamp</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>196</td>
-      <td>242</td>
-      <td>3</td>
-      <td>881250949</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>186</td>
-      <td>302</td>
-      <td>3</td>
-      <td>891717742</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>22</td>
-      <td>377</td>
-      <td>1</td>
-      <td>878887116</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>244</td>
-      <td>51</td>
-      <td>2</td>
-      <td>880606923</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>166</td>
-      <td>346</td>
-      <td>0</td>
-      <td>886397596</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-**In [54]:**
-
-{% highlight python %}
-user_item_ratings.head()
-{% endhighlight %}
-
-
-
-
-<div>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>user_id</th>
-      <th>movie_id</th>
-      <th>rating</th>
-      <th>timestamp</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>196</td>
-      <td>242</td>
-      <td>3</td>
-      <td>881250949</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>186</td>
-      <td>302</td>
-      <td>3</td>
-      <td>891717742</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>22</td>
-      <td>377</td>
-      <td>1</td>
-      <td>878887116</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>244</td>
-      <td>51</td>
-      <td>2</td>
-      <td>880606923</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>166</td>
-      <td>346</td>
-      <td>1</td>
-      <td>886397596</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-**In [55]:**
-
-{% highlight python %}
-len(user_item_ratings[user_item_ratings['rating']==0])
-{% endhighlight %}
-
-
-
-
-    0
-
-
-
-**In [56]:**
-
-{% highlight python %}
-len(training_set[training_set['rating']==0])
-{% endhighlight %}
-
-
-
-
-    9430
-
-
-
-**In [None]:**
-
-{% highlight python %}
-
-{% endhighlight %}
