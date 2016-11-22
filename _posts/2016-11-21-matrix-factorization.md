@@ -22,10 +22,10 @@ Probably we would find variables that correlate with e.g. the age of the user on
 the user-side and how much action there is in the movie on the movie side.
 
 The image below shows how this technique works. Two smaller matrices, one
-corresponding to the users (and their $k$ variables) and the movies (and their
-$k$ variables). In this example there are only two variables ($k=2$) for each
-user and movie. The user matrix has $n_{user}$ rows and $k+2$ columns, the movie
-matrix has $k+2$ rows and $n_{movies}$ columns.
+corresponding to the users (and their $$k$$ variables) and the movies (and their
+$$k$$ variables). In this example there are only two variables ($$k=2$$) for each
+user and movie. The user matrix has $$n_{user}$$ rows and $$k+2$$ columns, the movie
+matrix has $$k+2$$ rows and $$n_{movies}$$ columns.
 
 ![png]({{ BASE_PATH }}/images/MF.png) 
 
@@ -607,6 +607,6 @@ ax.set_xlim([0,5])
 
  
 43% of predictions were correct, and 47% were only 1 rating off, so 10% of
-predictions were 2 or more ratings off.
+predictions were 2 or more ratings off. I don't know how "good" these results actually are for typical implementations of this method, though a quick google search showed RMSE's that were comparable to ~0.9. However, if you are within 1 rating (out of a total of 5) for 90% of the time then I think that means 90% of the time you definitely discriminate between whether a user "likes" or "dislikes" the movie.
 
 
