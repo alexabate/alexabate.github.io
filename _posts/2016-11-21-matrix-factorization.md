@@ -607,6 +607,6 @@ ax.set_xlim([0,5])
 
  
 43% of predictions were correct, and 47% were only 1 rating off, so 10% of
-predictions were 2 or more ratings off. I don't know how "good" these results actually are for typical implementations of this method, though a quick google search showed RMSE's that were comparable to ~0.9. However, if you are within 1 rating (out of a total of 5) for 90% of the time then I think that means 90% of the time you definitely discriminate between whether a user "likes" or "dislikes" the movie.
+predictions were 2 or more ratings off. I don't know how "good" these results actually are for typical implementations of this method, though a quick google search showed RMSE's that were comparable to ~0.9 (result achieved here is 0.92). However, if you are within 1 rating (out of a total of 5) 90% of the time, then I think 90% of the time you definitely manage to discriminate between whether a user "likes" or "dislikes" a movie.
 
 
