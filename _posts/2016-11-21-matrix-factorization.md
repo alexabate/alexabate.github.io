@@ -19,7 +19,8 @@ In this post I will play with matrix factorisation to learn "hidden" variables
 for each user and movie that interact in some way to produce the final rating.
 We don't learn what these "hidden" variables might actually correspond to.
 Probably we would find variables that correlate with e.g. the age of the user on
-the user-side and how much action there is in the movie on the movie side.
+the user-side and how much action there is in the movie on the movie side. I have followed this [blog post](http://katbailey.github.io/post/matrix-factorization-with-tensorflow/) very closely, but attempted to 
+explain the problem in my own words and streamlined the code so it matches my weak coding capability. 
 
 The image below shows how this technique works. Two smaller matrices, one
 corresponding to the users (and their $$k$$ variables) and the movies (and their
